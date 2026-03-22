@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --midnight:      #070B12;
+    --navy:          #0C1422;
+    --navy-mid:      #101B30;
+    --navy-light:    #182640;
+    --gold:          #B8965A;
+    --gold-lt:       #D4AF7A;
+    --gold-pale:     #EBD9B4;
+    --ivory:         #F0EAE0;
+    --ivory-dim:     #BEB6A6;
+    --white:         #F8F5F0;
+    --border:        rgba(184, 150, 90, 0.18);
+    --border-bright: rgba(184, 150, 90, 0.45);
+    --section-padding: clamp(4rem, 8vw, 8rem);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--midnight);
+    color: var(--ivory);
+    font-family: var(--font-dm-sans), system-ui, sans-serif;
+    line-height: 1.6;
+    cursor: none;
+  }
+
+  @media (pointer: coarse) {
+    body { cursor: auto; }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-cormorant), Georgia, serif;
+    line-height: 1.15;
+  }
+
+  a { color: inherit; text-decoration: none; }
+
+  img { max-width: 100%; display: block; }
+
+  ::selection {
+    background: var(--gold);
+    color: var(--midnight);
+  }
+}
+
+@layer components {
+  .section-padding {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+  }
+
+  .container-wide {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(1.25rem, 5vw, 5rem);
+    padding-right: clamp(1.25rem, 5vw, 5rem);
+  }
+
+  .gold-rule {
+    display: block;
+    width: 3rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+  }
+
+  .gold-rule-full {
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    opacity: 0.3;
+  }
+
+  .text-display {
+    font-size: clamp(2.5rem, 5.5vw, 5rem);
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+  .text-heading {
+    font-size: clamp(1.75rem, 3vw, 2.75rem);
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-weight: 400;
+    line-height: 1.2;
+  }
+
+  .text-subhead {
+    font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+    font-family: var(--font-dm-sans), sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--ivory-dim);
+  }
+
+  .label-text {
+    font-family: var(--font-cinzel), serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .card-base {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    transition: border-color 0.3s ease;
+  }
+
+  .card-base:hover {
+    border-color: var(--border-bright);
+  }
+
+  /* Nav underline animation */
+  .nav-link {
+    position: relative;
+    font-family: var(--font-cinzel), serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ivory-dim);
+    transition: color 0.3s ease;
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: width 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .nav-link:hover {
+    color: var(--ivory);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+}
+
+@layer utilities {
+  .text-gold { color: var(--gold); }
+  .text-gold-lt { color: var(--gold-lt); }
+  .text-ivory { color: var(--ivory); }
+  .text-ivory-dim { color: var(--ivory-dim); }
+  .bg-midnight { background-color: var(--midnight); }
+  .bg-navy { background-color: var(--navy); }
+  .bg-navy-mid { background-color: var(--navy-mid); }
+  .bg-navy-light { background-color: var(--navy-light); }
+  .border-gold { border-color: var(--border); }
+  .border-gold-bright { border-color: var(--border-bright); }
+}

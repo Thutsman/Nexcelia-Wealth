@@ -1,0 +1,171 @@
+import type { PortableTextComponents } from '@portabletext/react'
+import Image from 'next/image'
+import { urlForImage } from './image'
+import type { SanityImage } from '@/types'
+
+export const portableTextComponents: PortableTextComponents = {
+  block: {
+    h2: ({ children }) => (
+      <h2
+        style={{
+          fontFamily: 'var(--font-cormorant)',
+          fontSize: 'clamp(1.75rem, 3vw, 2.25rem)',
+          color: 'var(--gold)',
+          fontWeight: 400,
+          lineHeight: 1.2,
+          marginTop: '2.5rem',
+          marginBottom: '1rem',
+        }}
+      >
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3
+        style={{
+          fontFamily: 'var(--font-cormorant)',
+          fontSize: 'clamp(1.35rem, 2vw, 1.65rem)',
+          color: 'var(--ivory)',
+          fontWeight: 400,
+          lineHeight: 1.25,
+          marginTop: '2rem',
+          marginBottom: '0.75rem',
+        }}
+      >
+        {children}
+      </h3>
+    ),
+    normal: ({ children }) => (
+      <p
+        style={{
+          fontFamily: 'var(--font-dm-sans)',
+          fontSize: '0.9375rem',
+          color: 'var(--ivory-dim)',
+          lineHeight: 1.9,
+          marginBottom: '1.25rem',
+        }}
+      >
+        {children}
+      </p>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote
+        style={{
+          borderLeft: '2px solid var(--gold)',
+          paddingLeft: '1.5rem',
+          margin: '2rem 0',
+          fontFamily: 'var(--font-cormorant)',
+          fontStyle: 'italic',
+          fontSize: '1.2rem',
+          color: 'var(--ivory)',
+          lineHeight: 1.7,
+        }}
+      >
+        {children}
+      </blockquote>
+    ),
+  },
+  marks: {
+    strong: ({ children }) => (
+      <strong style={{ color: 'var(--ivory)', fontWeight: 600 }}>{children}</strong>
+    ),
+    em: ({ children }) => (
+      <em style={{ color: 'var(--gold-lt)', fontStyle: 'italic' }}>{children}</em>
+    ),
+    link: ({ children, value }) => (
+      <a
+        href={value?.href}
+        target={value?.blank ? '_blank' : undefined}
+        rel={value?.blank ? 'noopener noreferrer' : undefined}
+        style={{
+          color: 'var(--gold)',
+          textDecoration: 'underline',
+          textDecorationColor: 'var(--border-bright)',
+          transition: 'color 0.2s',
+        }}
+      >
+        {children}
+      </a>
+    ),
+  },
+  types: {
+    image: ({ value }: { value: SanityImage & { alt?: string; caption?: string } }) => {
+      if (!value?.asset) return null
+      return (
+        <figure style={{ margin: '2.5rem 0' }}>
+          <div style={{ position: 'relative', width: '100%', aspectRatio: '16/9' }}>
+            <Image
+              src={urlForImage(value, 1200, 675)}
+              alt={value.alt ?? 'Article image'}
+              fill
+              style={{ objectFit: 'cover' }}
+              sizes="(max-width: 768px) 100vw, 900px"
+            />
+          </div>
+          {value.caption && (
+            <figcaption
+              style={{
+                marginTop: '0.75rem',
+                fontFamily: 'var(--font-dm-sans)',
+                fontSize: '0.8rem',
+                color: 'var(--ivory-dim)',
+                textAlign: 'center',
+                fontStyle: 'italic',
+              }}
+            >
+              {value.caption}
+            </figcaption>
+          )}
+        </figure>
+      )
+    },
+  },
+  list: {
+    bullet: ({ children }) => (
+      <ul
+        style={{
+          listStyle: 'none',
+          padding: 0,
+          margin: '1rem 0 1.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem',
+        }}
+      >
+        {children}
+      </ul>
+    ),
+    number: ({ children }) => (
+      <ol
+        style={{
+          listStyle: 'decimal',
+          paddingLeft: '1.5rem',
+          margin: '1rem 0 1.5rem',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem',
+        }}
+      >
+        {children}
+      </ol>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => (
+      <li
+        style={{
+          fontFamily: 'var(--font-dm-sans)',
+          fontSize: '0.9375rem',
+          color: 'var(--ivory-dim)',
+          lineHeight: 1.7,
+          display: 'flex',
+          gap: '0.75rem',
+          alignItems: 'flex-start',
+        }}
+      >
+        <span style={{ color: 'var(--gold)', marginTop: '0.35rem', flexShrink: 0 }}>·</span>
+        {children}
+      </li>
+    ),
+  },
+}

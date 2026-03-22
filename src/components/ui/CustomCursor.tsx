@@ -7,9 +7,9 @@ export function CustomCursor() {
   const ringRef = useRef<HTMLDivElement>(null)
   const pos = useRef({ x: 0, y: 0 })
   const ring = useRef({ x: 0, y: 0 })
+  const hasMovedRef = useRef(false)
   const [isTouch, setIsTouch] = useState(false)
   const [isHovering, setIsHovering] = useState(false)
-  const [visible, setVisible] = useState(false)
 
   useEffect(() => {
     if (window.matchMedia('(pointer: coarse)').matches) {
@@ -19,7 +19,11 @@ export function CustomCursor() {
 
     const onMove = (e: MouseEvent) => {
       pos.current = { x: e.clientX, y: e.clientY }
-      if (!visible) setVisible(true)
+      if (!hasMovedRef.current) {
+        hasMovedRef.current = true
+        if (dotRef.current) dotRef.current.style.opacity = '1'
+        if (ringRef.current) ringRef.current.style.opacity = '0.6'
+      }
       if (dotRef.current) {
         dotRef.current.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`
       }
@@ -83,7 +87,7 @@ export function CustomCursor() {
           willChange: 'transform',
           marginLeft: '-3.5px',
           marginTop: '-3.5px',
-          opacity: visible ? 1 : 0,
+          opacity: 0,
           transition: 'opacity 0.2s',
         }}
       />
@@ -98,7 +102,7 @@ export function CustomCursor() {
           height: isHovering ? '48px' : '32px',
           borderRadius: '50%',
           border: '1px solid var(--gold)',
-          opacity: visible ? 0.6 : 0,
+          opacity: 0,
           pointerEvents: 'none',
           zIndex: 99998,
           transition: 'width 0.3s, height 0.3s, opacity 0.3s',

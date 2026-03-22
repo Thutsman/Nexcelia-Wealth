@@ -14,7 +14,7 @@ import type { SanityImage } from '@/types'
 export const revalidate = 60
 
 interface ArticlePageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -23,7 +23,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
-  const post = await fetchPostBySlug(params.slug)
+  const { slug } = await params
+  const post = await fetchPostBySlug(slug)
   if (!post) return { title: 'Article Not Found' }
 
   const imageUrl = post.coverImage
@@ -45,11 +46,12 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
 }
 
 export default async function ArticlePage({ params }: ArticlePageProps) {
-  const post = await fetchPostBySlug(params.slug)
+  const { slug } = await params
+  const post = await fetchPostBySlug(slug)
   if (!post) notFound()
 
   const relatedPosts = post.category?.title
-    ? await fetchRelatedPosts(post.category.title, params.slug)
+    ? await fetchRelatedPosts(post.category.title, slug)
     : []
 
   const coverImageUrl = post.coverImage

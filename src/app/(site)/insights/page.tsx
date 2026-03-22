@@ -12,13 +12,13 @@ export const metadata: Metadata = {
 }
 
 interface InsightsPageProps {
-  searchParams: { category?: string }
+  searchParams: Promise<{ category?: string }>
 }
 
 export default async function InsightsPage({ searchParams }: InsightsPageProps) {
-  const [posts, categories] = await Promise.all([fetchPosts(), fetchCategories()])
+  const [posts, categories, { category }] = await Promise.all([fetchPosts(), fetchCategories(), searchParams])
 
-  const activeCategory = searchParams.category ?? 'All'
+  const activeCategory = category ?? 'All'
   const filteredPosts =
     activeCategory === 'All'
       ? posts

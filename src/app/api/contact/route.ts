@@ -2,8 +2,6 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { z } from 'zod'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
-
 const contactSchema = z.object({
   firstName: z.string().min(1),
   lastName: z.string().min(1),
@@ -14,6 +12,7 @@ const contactSchema = z.object({
 })
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY)
   try {
     const body = await req.json()
     const data = contactSchema.parse(body)
@@ -24,7 +23,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: 'Nexcelia Website <noreply@nexceliawealth.com>',
       to: ['office@nexceliawealth.com'],
-      replyTo: email,
+      reply_to: email,
       subject: `New Private Enquiry — ${enquiryType}`,
       html: `
         <!DOCTYPE html>

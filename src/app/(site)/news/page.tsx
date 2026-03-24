@@ -5,20 +5,20 @@ import { InsightsGrid } from '@/components/blog/InsightsGrid'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Insights & Perspectives',
+  title: 'News & Announcements',
   description:
-    'Investment outlooks, market analysis, and perspectives on wealth preservation from the Nexcelia principals.',
+    'Latest firm announcements, market briefings, and updates from Nexcelia Wealth.',
 }
 
-interface InsightsPageProps {
+interface NewsPageProps {
   searchParams: Promise<{ category?: string }>
 }
 
-export default async function InsightsPage({ searchParams }: InsightsPageProps) {
+export default async function NewsPage({ searchParams }: NewsPageProps) {
   const [{ category }, posts, categories] = await Promise.all([
     searchParams,
-    fetchContent('insight'),
-    fetchContentCategories('insight'),
+    fetchContent('news'),
+    fetchContentCategories('news'),
   ])
 
   const activeCategory = category ?? 'All'
@@ -31,7 +31,6 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
 
   return (
     <div style={{ background: 'var(--midnight)', minHeight: '100vh' }}>
-      {/* Hero header */}
       <div
         className="pt-32 pb-16 section-padding"
         style={{
@@ -42,19 +41,18 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
         <div className="container-wide">
           <span className="label-text text-[0.6rem] inline-flex items-center gap-3 mb-5">
             <span className="gold-rule" />
-            From the Principals
+            Briefings & Firm Updates
           </span>
           <h1 className="text-display text-ivory heading-gap">
-            Insights &amp; <em className="text-gold">Perspectives</em>
+            News &amp; <em className="text-gold">Announcements</em>
           </h1>
           <p className="text-body max-w-xl">
-            Investment outlooks, market analysis, and perspectives on wealth preservation,
-            conservation, and the evolving landscape of African and global capital markets.
+            Timely updates from our principals, including market bulletins, office developments,
+            and strategic announcements.
           </p>
         </div>
       </div>
 
-      {/* Category filters */}
       <div
         className="sticky top-[60px] z-30 py-4"
         style={{ background: 'var(--navy)', borderBottom: '1px solid var(--border)' }}
@@ -63,7 +61,7 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
           {['All', ...categories.map((c) => c.title)].map((cat) => (
             <a
               key={cat}
-              href={cat === 'All' ? '/insights' : `/insights?category=${encodeURIComponent(cat)}`}
+              href={cat === 'All' ? '/news' : `/news?category=${encodeURIComponent(cat)}`}
               className="flex-shrink-0 px-4 py-1.5 font-body text-[12px] font-medium tracking-[0.08em] uppercase transition-all duration-200"
               style={{
                 border: `1px solid ${activeCategory === cat ? 'var(--border-bright)' : 'var(--border)'}`,
@@ -77,17 +75,19 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
         </div>
       </div>
 
-      {/* Content */}
       <div className="container-wide section-padding">
         {filteredPosts.length === 0 ? (
           <div className="py-24 text-center">
-            <p className="font-display text-[22px] leading-[1.4] text-ivory mb-4">No articles yet</p>
-            <p className="text-body">
-              Check back soon — our principals are working on new perspectives.
-            </p>
+            <p className="font-display text-[22px] leading-[1.4] text-ivory mb-4">No news items yet</p>
+            <p className="text-body">Check back soon for the latest announcements and briefings.</p>
           </div>
         ) : (
-          <InsightsGrid posts={filteredPosts} featuredPost={featuredPost} basePath="/insights" />
+          <InsightsGrid
+            posts={filteredPosts}
+            featuredPost={featuredPost}
+            basePath="/news"
+            emptyMessage="No news items found in this category."
+          />
         )}
       </div>
     </div>

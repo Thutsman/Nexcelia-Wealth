@@ -5,6 +5,8 @@ export const navLinks: NavItem[] = [
   { label: 'Focus Areas', href: '#focus-areas' },
   { label: 'Principals', href: '#principals' },
   { label: 'Presence', href: '#presence' },
+  { label: 'Insights', href: '/insights' },
+  { label: 'News', href: '/news' },
   { label: 'Enquire', href: '#contact' },
 ]
 

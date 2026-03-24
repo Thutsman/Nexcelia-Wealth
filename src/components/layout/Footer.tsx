@@ -45,6 +45,9 @@ export function Footer() {
               <Link href="/insights" className="text-ivory-dim hover:text-ivory text-[17px] font-body transition-colors duration-200">
                 Insights
               </Link>
+              <Link href="/news" className="text-ivory-dim hover:text-ivory text-[17px] font-body transition-colors duration-200">
+                News
+              </Link>
             </nav>
           </div>
 

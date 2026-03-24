@@ -1,15 +1,25 @@
 import type { MetadataRoute } from 'next'
-import { fetchAllSlugs } from '@/lib/sanity/fetch'
+import { fetchContentSlugs } from '@/lib/content/mock'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexceliawealth.com'
 
-  const slugs = await fetchAllSlugs()
+  const [insightSlugs, newsSlugs] = await Promise.all([
+    fetchContentSlugs('insight'),
+    fetchContentSlugs('news'),
+  ])
 
-  const postUrls: MetadataRoute.Sitemap = slugs.map(({ slug }) => ({
+  const insightUrls: MetadataRoute.Sitemap = insightSlugs.map(({ slug }) => ({
     url: `${baseUrl}/insights/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly',
+    priority: 0.7,
+  }))
+
+  const newsUrls: MetadataRoute.Sitemap = newsSlugs.map(({ slug }) => ({
+    url: `${baseUrl}/news/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly',
     priority: 0.7,
   }))
 
@@ -26,6 +36,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    ...postUrls,
+    {
+      url: `${baseUrl}/news`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...insightUrls,
+    ...newsUrls,
   ]
 }

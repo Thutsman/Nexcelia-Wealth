@@ -1,8 +1,8 @@
 import { formatDate } from '@/lib/utils'
-import type { SanityPost } from '@/types'
+import type { ContentItem } from '@/types/content'
 
 interface ArticleHeaderProps {
-  post: SanityPost
+  post: ContentItem
 }
 
 export function ArticleHeader({ post }: ArticleHeaderProps) {

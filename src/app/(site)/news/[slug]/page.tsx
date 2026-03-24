@@ -9,19 +9,19 @@ import { ReadingProgress } from '@/components/blog/ReadingProgress'
 
 export const revalidate = 60
 
-interface ArticlePageProps {
+interface NewsArticlePageProps {
   params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
-  const slugs = await fetchContentSlugs('insight')
+  const slugs = await fetchContentSlugs('news')
   return slugs.map((s) => ({ slug: s.slug }))
 }
 
-export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: NewsArticlePageProps): Promise<Metadata> {
   const { slug } = await params
-  const post = await fetchContentBySlug('insight', slug)
-  if (!post) return { title: 'Article Not Found' }
+  const post = await fetchContentBySlug('news', slug)
+  if (!post) return { title: 'News Item Not Found' }
 
   const imageUrl = post.coverImageUrl
 
@@ -39,13 +39,13 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   }
 }
 
-export default async function ArticlePage({ params }: ArticlePageProps) {
+export default async function NewsArticlePage({ params }: NewsArticlePageProps) {
   const { slug } = await params
-  const post = await fetchContentBySlug('insight', slug)
+  const post = await fetchContentBySlug('news', slug)
   if (!post) notFound()
 
   const relatedPosts = post.category?.slug
-    ? await fetchRelatedContent('insight', post.category.slug, slug)
+    ? await fetchRelatedContent('news', post.category.slug, slug)
     : []
 
   const coverImageUrl = post.coverImageUrl ?? null
@@ -55,7 +55,6 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       <ReadingProgress />
 
       <article style={{ background: 'var(--midnight)', minHeight: '100vh' }}>
-        {/* Cover image hero */}
         {coverImageUrl && (
           <div
             className="relative w-full"
@@ -79,20 +78,17 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         )}
 
         <div className="container-wide max-w-4xl mx-auto">
-          {/* Back link */}
           <div className="pt-10 pb-6">
             <Link
-              href="/insights"
+              href="/news"
               className="inline-flex items-center gap-2 font-accent text-[0.6rem] tracking-widest uppercase text-ivory-dim hover:text-gold transition-colors"
             >
-              ← Back to Insights
+              ← Back to News
             </Link>
           </div>
 
-          {/* Article header */}
           <ArticleHeader post={post} />
 
-          {/* Article body */}
           <div className="article-body pb-16">
             {post.body.map((paragraph, index) => (
               <p key={`${post.id}-paragraph-${index}`} className="text-body mb-6">
@@ -101,8 +97,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
             ))}
           </div>
 
-          {/* Related posts */}
-          <RelatedPosts posts={relatedPosts} basePath="/insights" title="Related Insights" />
+          <RelatedPosts posts={relatedPosts} basePath="/news" title="Related News" />
         </div>
       </article>
     </>

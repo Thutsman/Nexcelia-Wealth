@@ -1,12 +1,14 @@
 import Link from 'next/link'
 import { PostCard } from './PostCard'
-import type { SanityPost } from '@/types'
+import type { ContentItem } from '@/types/content'
 
 interface RelatedPostsProps {
-  posts: SanityPost[]
+  posts: ContentItem[]
+  basePath: '/insights' | '/news'
+  title?: string
 }
 
-export function RelatedPosts({ posts }: RelatedPostsProps) {
+export function RelatedPosts({ posts, basePath, title = 'Related Insights' }: RelatedPostsProps) {
   if (!posts.length) return null
 
   return (
@@ -16,20 +18,20 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
     >
       <div className="mb-8">
         <span className="label-text text-[0.6rem]">Continue Reading</span>
-        <h2 className="font-display text-[36px] leading-[1.3] text-ivory mt-3">Related Insights</h2>
+        <h2 className="font-display text-[36px] leading-[1.3] text-ivory mt-3">{title}</h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
-          <PostCard key={post._id} post={post} />
+          <PostCard key={post.id} post={post} basePath={basePath} />
         ))}
       </div>
       <div className="mt-10 text-center">
         <Link
-          href="/insights"
+          href={basePath}
           className="inline-flex items-center gap-2 px-7 py-3 font-body text-xs font-medium tracking-[0.08em] uppercase text-gold"
           style={{ border: '1px solid var(--border-bright)' }}
         >
-          All Insights →
+          {basePath === '/news' ? 'All News →' : 'All Insights →'}
         </Link>
       </div>
     </section>

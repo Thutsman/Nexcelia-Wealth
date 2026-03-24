@@ -1,19 +1,17 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { formatDate } from '@/lib/utils'
-import { urlForImage } from '@/lib/sanity/image'
-import type { SanityPost, SanityImage } from '@/types'
+import type { ContentItem } from '@/types/content'
 
 interface PostCardProps {
-  post: SanityPost
+  post: ContentItem
+  basePath: '/insights' | '/news'
   featured?: boolean
 }
 
-export function PostCard({ post, featured = false }: PostCardProps) {
-  const href = `/insights/${post.slug.current}`
-  const imageUrl = post.coverImage
-    ? urlForImage(post.coverImage as SanityImage, featured ? 1200 : 600, featured ? 630 : 400)
-    : null
+export function PostCard({ post, basePath, featured = false }: PostCardProps) {
+  const href = `${basePath}/${post.slug}`
+  const imageUrl = post.coverImageUrl ?? null
 
   if (featured) {
     return (
@@ -80,20 +78,8 @@ export function PostCard({ post, featured = false }: PostCardProps) {
   return (
     <Link href={href} className="group block h-full">
       <div
-        className="h-full flex flex-col"
-        style={{ border: '1px solid var(--border)', background: 'var(--navy-mid)', transition: 'border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease' }}
-        onMouseEnter={(e) => {
-          const el = e.currentTarget as HTMLElement
-          el.style.borderColor = 'var(--border-bright)'
-          el.style.boxShadow = '0 0 0 1px rgba(176,138,82,0.2), 0 12px 28px rgba(8,12,20,0.35)'
-          el.style.filter = 'brightness(1.03)'
-        }}
-        onMouseLeave={(e) => {
-          const el = e.currentTarget as HTMLElement
-          el.style.borderColor = 'var(--border)'
-          el.style.boxShadow = 'none'
-          el.style.filter = 'brightness(1)'
-        }}
+        className="card-base h-full flex flex-col"
+        style={{ background: 'var(--navy-mid)' }}
       >
         {/* Image */}
         <div className="relative overflow-hidden" style={{ aspectRatio: '3/2', background: 'var(--navy-light)' }}>

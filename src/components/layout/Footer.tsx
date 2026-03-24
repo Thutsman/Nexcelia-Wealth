@@ -13,9 +13,9 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-4">
-              <span className="font-accent text-ivory text-base tracking-[0.25em]">NEXCELIA</span>
+              <span className="font-display text-ivory text-2xl tracking-[0.1em]">NEXCELIA</span>
             </Link>
-            <p className="text-ivory-dim text-sm leading-relaxed max-w-xs font-body">
+            <p className="text-body max-w-xs">
               A private family office managing multi-generational wealth across Africa, Europe,
               and Asia. Founded on the principles of integrity, discretion, and long-term stewardship.
             </p>
@@ -37,12 +37,12 @@ export function Footer() {
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-ivory-dim hover:text-ivory text-sm font-body transition-colors"
+                  className="text-ivory-dim hover:text-ivory text-[17px] font-body transition-colors duration-200"
                 >
                   {link.label}
                 </a>
               ))}
-              <Link href="/insights" className="text-ivory-dim hover:text-ivory text-sm font-body transition-colors">
+              <Link href="/insights" className="text-ivory-dim hover:text-ivory text-[17px] font-body transition-colors duration-200">
                 Insights
               </Link>
             </nav>
@@ -52,13 +52,13 @@ export function Footer() {
           <div>
             <p className="label-text mb-5 text-[0.6rem]">Contact</p>
             <div className="flex flex-col gap-3">
-              <p className="text-ivory-dim text-sm font-body">Bulawayo, Zimbabwe</p>
-              <p className="text-ivory-dim text-sm font-body">The Hague, Netherlands</p>
-              <p className="text-ivory-dim text-sm font-body">Shanghai, China</p>
+              <p className="text-ivory-dim text-[17px] font-body">Bulawayo, Zimbabwe</p>
+              <p className="text-ivory-dim text-[17px] font-body">The Hague, Netherlands</p>
+              <p className="text-ivory-dim text-[17px] font-body">Shanghai, China</p>
               <GoldDivider className="my-2" />
               <a
                 href="mailto:office@nexceliawealth.com"
-                className="text-gold hover:text-gold-lt text-sm font-body transition-colors"
+                className="text-gold hover:text-gold-lt text-[17px] font-body transition-colors duration-200"
               >
                 office@nexceliawealth.com
               </a>

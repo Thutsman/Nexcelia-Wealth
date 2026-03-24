@@ -33,7 +33,7 @@ export function Hero() {
             </RevealWrapper>
 
             <RevealWrapper delay={0.35}>
-              <h1 className="text-display text-ivory mb-6">
+              <h1 className="text-display text-ivory heading-gap">
                 Preserving &amp;{' '}
                 <em className="text-gold not-italic">Growing</em> Wealth{' '}
                 <br className="hidden sm:block" />
@@ -42,7 +42,7 @@ export function Hero() {
             </RevealWrapper>
 
             <RevealWrapper delay={0.5}>
-              <p className="text-subhead mb-10 max-w-lg">
+              <p className="text-subhead section-gap max-w-lg">
                 Nexcelia Wealth is a private family office headquartered in Bulawayo, Zimbabwe —
                 combining deep African market insight with global capital markets expertise to
                 protect and compound multi-generational wealth.
@@ -75,10 +75,10 @@ export function Hero() {
             {HERO_STATS.map((stat, i) => (
               <div
                 key={stat.label}
-                className="py-6 px-4 lg:px-8 flex flex-col gap-1 border-r border-[var(--border)] last:border-r-0 odd:border-r"
+                className="py-7 px-5 lg:px-8 flex flex-col gap-2 border-r border-[var(--border)] last:border-r-0 odd:border-r"
                 style={{ borderRight: i < HERO_STATS.length - 1 ? '1px solid var(--border)' : 'none' }}
               >
-                <span className="font-display text-3xl lg:text-4xl font-light text-gold">
+                <span className="font-display text-3xl lg:text-4xl font-medium text-gold">
                   {stat.value}
                 </span>
                 <span className="label-text text-[0.58rem] text-ivory-dim">

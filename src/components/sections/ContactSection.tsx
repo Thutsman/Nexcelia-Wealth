@@ -47,7 +47,7 @@ export function ContactSection() {
   }
 
   const inputClass =
-    'w-full bg-transparent border-b border-[var(--border)] focus:border-[var(--gold)] outline-none py-3 text-ivory placeholder-[var(--ivory-dim)] text-sm font-body transition-colors duration-300'
+    'w-full bg-transparent border-b border-[var(--border)] focus:border-[var(--gold)] outline-none py-3 text-ivory placeholder-[var(--text-muted)] text-[17px] leading-[1.7] font-body transition-colors duration-200'
 
   const labelClass = 'label-text text-[0.58rem] block mb-2 text-ivory-dim'
 
@@ -68,12 +68,12 @@ export function ContactSection() {
               </SectionLabel>
             </RevealWrapper>
             <RevealWrapper delay={0.2}>
-              <h2 className="text-heading text-ivory mb-6">
+              <h2 className="text-heading text-ivory heading-gap">
                 Begin a <em className="text-gold">conversation</em>
               </h2>
             </RevealWrapper>
             <RevealWrapper delay={0.3}>
-              <p className="text-ivory-dim text-sm leading-relaxed font-body mb-10 max-w-sm">
+              <p className="text-body section-gap max-w-sm">
                 All enquiries are treated with the strictest confidence. Our principals
                 personally review each request and will respond within three business days.
               </p>
@@ -92,12 +92,12 @@ export function ContactSection() {
                     {item.isEmail ? (
                       <a
                         href={`mailto:${item.value}`}
-                        className="text-gold hover:text-gold-lt text-sm font-body transition-colors"
+                        className="text-gold hover:text-gold-lt text-[17px] font-body transition-colors duration-200"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="text-ivory text-sm font-body">{item.value}</p>
+                      <p className="text-ivory text-[17px] leading-[1.7] font-body">{item.value}</p>
                     )}
                   </div>
                 ))}
@@ -108,13 +108,13 @@ export function ContactSection() {
           {/* Right — form */}
           <RevealWrapper delay={0.3} direction="left">
             <div
-              className="p-8 lg:p-10"
+              className="card-base p-8 lg:p-10"
               style={{ background: 'var(--navy-light)', border: '1px solid var(--border)' }}
             >
               {status === 'success' ? (
                 <div className="flex flex-col gap-4 items-start py-8">
                   <div className="text-gold text-3xl font-display italic">Thank you.</div>
-                  <p className="text-ivory-dim text-sm font-body leading-relaxed">
+                  <p className="text-body">
                     Your enquiry has been received. A principal will be in touch within three
                     business days. A confirmation has been sent to your email address.
                   </p>

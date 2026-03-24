@@ -23,7 +23,7 @@ const config: Config = {
       fontFamily: {
         display: ['var(--font-cormorant)', 'Georgia', 'serif'],
         body:    ['var(--font-dm-sans)',   'system-ui', 'sans-serif'],
-        accent:  ['var(--font-cinzel)',    'Georgia', 'serif'],
+        accent:  ['var(--font-dm-sans)',   'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gold-gradient': 'linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%)',

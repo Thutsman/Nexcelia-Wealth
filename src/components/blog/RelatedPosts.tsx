@@ -16,7 +16,7 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
     >
       <div className="mb-8">
         <span className="label-text text-[0.6rem]">Continue Reading</span>
-        <h2 className="font-display text-2xl text-ivory mt-2">Related Insights</h2>
+        <h2 className="font-display text-[36px] leading-[1.3] text-ivory mt-3">Related Insights</h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (
@@ -26,7 +26,7 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
       <div className="mt-10 text-center">
         <Link
           href="/insights"
-          className="inline-flex items-center gap-2 px-7 py-3 font-accent text-xs tracking-widest uppercase text-gold"
+          className="inline-flex items-center gap-2 px-7 py-3 font-body text-xs font-medium tracking-[0.08em] uppercase text-gold"
           style={{ border: '1px solid var(--border-bright)' }}
         >
           All Insights →

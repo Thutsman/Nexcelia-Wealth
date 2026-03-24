@@ -15,21 +15,21 @@ interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
 const variantStyles: Record<ButtonVariant, string> = {
   primary: [
     'relative inline-flex items-center gap-2 px-7 py-3.5',
-    'font-accent text-xs tracking-widest uppercase',
+    'font-body text-xs font-medium tracking-[0.08em] uppercase',
     'text-midnight bg-gold hover:bg-gold-lt',
     'transition-all duration-300',
     'border border-transparent',
   ].join(' '),
   ghost: [
     'relative inline-flex items-center gap-2 px-7 py-3.5',
-    'font-accent text-xs tracking-widest uppercase',
+    'font-body text-xs font-medium tracking-[0.08em] uppercase',
     'text-ivory-dim hover:text-ivory',
     'border border-[var(--border)] hover:border-[var(--border-bright)]',
     'transition-all duration-300',
   ].join(' '),
   outline: [
     'relative inline-flex items-center gap-2 px-7 py-3.5',
-    'font-accent text-xs tracking-widest uppercase',
+    'font-body text-xs font-medium tracking-[0.08em] uppercase',
     'text-gold hover:text-gold-lt',
     'border border-[var(--border-bright)] hover:border-gold-lt',
     'transition-all duration-300',

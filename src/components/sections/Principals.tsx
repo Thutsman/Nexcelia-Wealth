@@ -23,13 +23,13 @@ export function Principals() {
             </SectionLabel>
             <h2
               className="font-display text-ivory mb-6"
-              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.75rem)', fontWeight: 300, lineHeight: 1.1 }}
+              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 52px)', fontWeight: 600, lineHeight: 1.2 }}
             >
               Grounded in <em className="text-gold">experience</em>. Guided by values.
             </h2>
             <p
-              className="text-ivory-dim font-body mx-auto"
-              style={{ maxWidth: '36rem', fontSize: '0.9375rem', lineHeight: 1.85 }}
+              className="text-body mx-auto"
+              style={{ maxWidth: '36rem' }}
             >
               Nexcelia Wealth is directed by two principals whose backgrounds are distinct but
               complementary — one rooted in academic economics and international financial
@@ -46,7 +46,7 @@ export function Principals() {
           {PRINCIPALS.map((principal, i) => (
             <RevealWrapper key={principal.name} delay={0.2 + i * 0.15}>
               <div
-                className="flex flex-col gap-7 p-10 lg:p-12 h-full"
+                className="card-base flex flex-col gap-7 p-10 lg:p-12 h-full"
                 style={{
                   background: i === 0 ? 'var(--navy-mid)' : 'var(--navy-light)',
                   borderRight: i === 0 ? '1px solid var(--border)' : 'none',
@@ -73,8 +73,8 @@ export function Principals() {
 
                 {/* Name */}
                 <h3
-                  className="font-display text-ivory font-light leading-tight"
-                  style={{ fontSize: 'clamp(1.75rem, 3vw, 2.5rem)' }}
+                  className="font-display text-ivory font-medium leading-tight"
+                  style={{ fontSize: 'clamp(1.6rem, 3vw, 36px)', lineHeight: 1.3 }}
                 >
                   {principal.name}
                 </h3>
@@ -82,17 +82,17 @@ export function Principals() {
                 {/* Subtitle — italic gold */}
                 <p
                   className="font-display text-gold"
-                  style={{ fontSize: '0.95rem', fontStyle: 'italic', lineHeight: 1.5 }}
+                  style={{ fontSize: '22px', fontStyle: 'italic', lineHeight: 1.4 }}
                 >
                   {principal.subtitle}
                 </p>
 
                 {/* Bio paragraphs */}
                 <div className="flex flex-col gap-5">
-                  <p className="text-ivory-dim font-body text-sm leading-relaxed">
+                  <p className="text-body">
                     {principal.bio1}
                   </p>
-                  <p className="text-ivory-dim font-body text-sm leading-relaxed">
+                  <p className="text-body">
                     {principal.bio2}
                   </p>
                 </div>
@@ -108,7 +108,7 @@ export function Principals() {
                         className="flex-shrink-0 mt-[5px] w-1.5 h-1.5 rounded-full"
                         style={{ background: 'var(--gold)', opacity: 0.7 }}
                       />
-                      <span className="text-ivory-dim font-body text-sm leading-relaxed">
+                      <span className="text-body">
                         {cred.bold && (
                           <strong className="text-ivory font-medium">{cred.bold}</strong>
                         )}

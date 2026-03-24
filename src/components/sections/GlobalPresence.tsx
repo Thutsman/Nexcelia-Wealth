@@ -23,12 +23,12 @@ export function GlobalPresence() {
               </SectionLabel>
             </RevealWrapper>
             <RevealWrapper delay={0.2}>
-              <h2 className="text-heading text-ivory mb-6">
+              <h2 className="text-heading text-ivory heading-gap">
                 Where we <em className="text-gold">operate</em>
               </h2>
             </RevealWrapper>
             <RevealWrapper delay={0.3}>
-              <p className="text-ivory-dim text-sm leading-relaxed font-body mb-8 max-w-md">
+              <p className="text-body section-gap max-w-md">
                 Our multi-jurisdiction footprint gives us the ability to structure wealth
                 solutions that span multiple regulatory environments, tax treaties, and
                 financial markets — a critical advantage for globally-oriented African families.
@@ -36,16 +36,16 @@ export function GlobalPresence() {
             </RevealWrapper>
             <RevealWrapper delay={0.4}>
               <div
-                className="p-8 flex flex-col gap-5"
+                className="card-base p-8 flex flex-col gap-5"
                 style={{ background: 'var(--navy-mid)', border: '1px solid var(--border)' }}
               >
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">🌿</span>
                   <div>
-                    <p className="font-display text-lg text-ivory mb-2">
+                    <p className="font-display text-[22px] leading-[1.4] text-ivory mb-3">
                       Research & Conservation Foundation
                     </p>
-                    <p className="text-ivory-dim text-xs leading-relaxed font-body">
+                    <p className="text-body">
                       Our affiliated research foundation supports conservation science, land tenure
                       reform advocacy, and nature-based carbon market development across Southern Africa.
                     </p>
@@ -71,7 +71,7 @@ export function GlobalPresence() {
             {OFFICE_LOCATIONS.map((loc, i) => (
               <RevealWrapper key={loc.city} delay={0.15 + i * 0.1}>
                 <div
-                  className="group flex items-center gap-5 p-5 transition-all duration-300 cursor-default"
+                  className="group card-base flex items-center gap-5 p-6 transition-all duration-200 cursor-default"
                   style={{
                     border: '1px solid var(--border)',
                     background: 'var(--navy-mid)',
@@ -79,12 +79,12 @@ export function GlobalPresence() {
                   onMouseEnter={(e) => {
                     const el = e.currentTarget
                     el.style.borderColor = 'var(--border-bright)'
-                    el.style.paddingLeft = '28px'
+                    el.style.paddingLeft = '30px'
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget
                     el.style.borderColor = 'var(--border)'
-                    el.style.paddingLeft = '20px'
+                    el.style.paddingLeft = '24px'
                   }}
                 >
                   <div
@@ -93,8 +93,8 @@ export function GlobalPresence() {
                   />
                   <div className="flex-1">
                     <div className="flex items-baseline gap-3">
-                      <span className="font-display text-lg text-ivory">{loc.city}</span>
-                      <span className="text-ivory-dim text-xs font-body">— {loc.country}</span>
+                      <span className="font-display text-[22px] leading-[1.4] text-ivory">{loc.city}</span>
+                      <span className="text-muted text-[15px] font-body">— {loc.country}</span>
                     </div>
                     <p className="label-text text-[0.58rem] text-ivory-dim mt-0.5">{loc.role}</p>
                   </div>

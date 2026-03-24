@@ -16,11 +16,11 @@ export function ArticleHeader({ post }: ArticleHeaderProps) {
           {post.category.title}
         </span>
       )}
-      <h1 className="font-display text-4xl lg:text-5xl text-ivory mb-6 leading-tight font-light max-w-3xl">
+      <h1 className="text-display text-ivory heading-gap max-w-3xl">
         {post.title}
       </h1>
       {post.excerpt && (
-        <p className="text-ivory-dim text-base leading-relaxed font-body max-w-2xl mb-8">
+        <p className="text-body max-w-2xl section-gap">
           {post.excerpt}
         </p>
       )}

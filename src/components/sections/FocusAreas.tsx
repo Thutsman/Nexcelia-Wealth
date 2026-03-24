@@ -33,7 +33,7 @@ export function FocusAreas() {
           {FOCUS_AREAS.map((area, i) => (
             <RevealWrapper key={area.label} delay={0.15 + i * 0.1}>
               <motion.div
-                className="group card-base relative p-6 flex flex-col gap-4 cursor-default overflow-hidden"
+                className="group card-base relative p-7 flex flex-col gap-4 cursor-default overflow-hidden"
                 style={{ background: 'var(--navy-mid)', minHeight: '280px' }}
                 whileHover={{ y: -8, transition: { duration: 0.3 } }}
               >
@@ -55,10 +55,10 @@ export function FocusAreas() {
                 <div style={{ color: area.accentColor }}>{icons[area.icon]}</div>
 
                 {/* Title */}
-                <h3 className="font-display text-xl text-ivory font-medium">{area.label}</h3>
+                <h3 className="font-display text-[22px] leading-[1.4] text-ivory font-medium">{area.label}</h3>
 
                 {/* Body */}
-                <p className="text-ivory-dim text-xs leading-relaxed font-body flex-1">
+                <p className="text-body flex-1">
                   {area.body}
                 </p>
 

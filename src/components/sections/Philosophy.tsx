@@ -22,15 +22,15 @@ export function Philosophy() {
             </RevealWrapper>
 
             <RevealWrapper delay={0.2}>
-              <h2 className="text-heading text-ivory mb-8">
+              <h2 className="text-heading text-ivory section-gap">
                 Wealth is a responsibility,{' '}
-                <em className="text-gold">not merely a reward</em>
+                <em className="text-gold italic" style={{ color: 'var(--gold-lt)' }}>not merely a reward</em>
               </h2>
             </RevealWrapper>
 
             <RevealWrapper delay={0.3}>
               <blockquote
-                className="pl-6 mb-8 italic font-display text-xl text-ivory-dim leading-relaxed"
+                className="pl-6 section-gap italic font-display text-[22px] text-ivory leading-[1.7]"
                 style={{ borderLeft: '2px solid var(--gold)' }}
               >
                 &ldquo;We build relationships measured in generations, not reporting periods.
@@ -40,7 +40,7 @@ export function Philosophy() {
             </RevealWrapper>
 
             <RevealWrapper delay={0.4}>
-              <p className="text-ivory-dim text-sm leading-relaxed font-body">
+              <p className="text-body max-w-xl">
                 Nexcelia operates as a principal-led advisory, which means our incentives are
                 genuinely aligned with your family&rsquo;s long-term interests. We do not
                 manage funds, charge basis points on AUM, or receive third-party commissions.
@@ -55,7 +55,7 @@ export function Philosophy() {
             {PHILOSOPHY_VALUES.map((value, i) => (
               <RevealWrapper key={value.title} delay={0.2 + i * 0.1}>
                 <div
-                  className="card-base p-6 group relative overflow-hidden"
+                  className="card-base p-7 group relative overflow-hidden"
                   style={{ background: 'var(--navy-light)' }}
                 >
                   {/* Gold top border reveal */}
@@ -63,10 +63,10 @@ export function Philosophy() {
                     className="absolute top-0 left-0 right-0 h-px origin-left transition-all duration-500 scale-x-0 group-hover:scale-x-100"
                     style={{ background: 'var(--gold)' }}
                   />
-                  <h3 className="font-display text-lg text-ivory mb-3 font-medium">
+                  <h3 className="font-display text-[22px] leading-[1.4] text-ivory mb-4 font-medium">
                     {value.title}
                   </h3>
-                  <p className="text-ivory-dim text-sm leading-relaxed font-body">
+                  <p className="text-body">
                     {value.body}
                   </p>
                 </div>

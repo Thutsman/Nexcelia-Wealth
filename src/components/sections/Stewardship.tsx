@@ -43,14 +43,14 @@ export function Stewardship() {
         </RevealWrapper>
 
         <RevealWrapper delay={0.2}>
-          <h2 className="text-heading text-ivory mb-6 max-w-3xl mx-auto">
+          <h2 className="text-heading text-ivory heading-gap max-w-3xl mx-auto">
             Capital with <em className="text-gold">conscience</em> — investing{' '}
             in a sustainable future
           </h2>
         </RevealWrapper>
 
         <RevealWrapper delay={0.3}>
-          <p className="text-subhead max-w-2xl mx-auto mb-14">
+          <p className="text-subhead max-w-2xl mx-auto section-gap">
             We believe that the families who have been most successful in creating wealth
             also bear the greatest obligation to deploy it responsibly. Our conservation
             portfolio is not separate from our financial mandate — it is central to it.
@@ -67,14 +67,14 @@ export function Stewardship() {
             ].map((stat, i) => (
               <div
                 key={stat.label}
-                className="px-10 py-8 text-center"
+                className="px-10 py-8 text-center card-base"
                 style={{
                   background: 'var(--navy-mid)',
                   borderRight: i < 2 ? '1px solid var(--border)' : 'none',
                 }}
               >
                 <span
-                  className="block font-display text-4xl font-light mb-2"
+                  className="block font-display text-4xl font-medium mb-2"
                   style={{ color: 'rgba(62,140,90,0.85)' }}
                 >
                   {stat.value}

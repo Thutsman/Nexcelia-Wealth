@@ -9,12 +9,12 @@ export const portableTextComponents: PortableTextComponents = {
       <h2
         style={{
           fontFamily: 'var(--font-cormorant)',
-          fontSize: 'clamp(1.75rem, 3vw, 2.25rem)',
+          fontSize: '36px',
           color: 'var(--gold)',
-          fontWeight: 400,
-          lineHeight: 1.2,
-          marginTop: '2.5rem',
-          marginBottom: '1rem',
+          fontWeight: 500,
+          lineHeight: 1.3,
+          marginTop: '2.75rem',
+          marginBottom: '1.25rem',
         }}
       >
         {children}
@@ -24,12 +24,12 @@ export const portableTextComponents: PortableTextComponents = {
       <h3
         style={{
           fontFamily: 'var(--font-cormorant)',
-          fontSize: 'clamp(1.35rem, 2vw, 1.65rem)',
+          fontSize: '22px',
           color: 'var(--ivory)',
-          fontWeight: 400,
-          lineHeight: 1.25,
-          marginTop: '2rem',
-          marginBottom: '0.75rem',
+          fontWeight: 500,
+          lineHeight: 1.4,
+          marginTop: '2.25rem',
+          marginBottom: '1rem',
         }}
       >
         {children}
@@ -39,10 +39,10 @@ export const portableTextComponents: PortableTextComponents = {
       <p
         style={{
           fontFamily: 'var(--font-dm-sans)',
-          fontSize: '0.9375rem',
+          fontSize: '17px',
           color: 'var(--ivory-dim)',
-          lineHeight: 1.9,
-          marginBottom: '1.25rem',
+          lineHeight: 1.7,
+          marginBottom: '1.4rem',
         }}
       >
         {children}
@@ -56,7 +56,7 @@ export const portableTextComponents: PortableTextComponents = {
           margin: '2rem 0',
           fontFamily: 'var(--font-cormorant)',
           fontStyle: 'italic',
-          fontSize: '1.2rem',
+          fontSize: '22px',
           color: 'var(--ivory)',
           lineHeight: 1.7,
         }}
@@ -155,7 +155,7 @@ export const portableTextComponents: PortableTextComponents = {
       <li
         style={{
           fontFamily: 'var(--font-dm-sans)',
-          fontSize: '0.9375rem',
+          fontSize: '17px',
           color: 'var(--ivory-dim)',
           lineHeight: 1.7,
           display: 'flex',

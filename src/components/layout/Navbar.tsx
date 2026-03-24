@@ -38,7 +38,7 @@ export function Navbar() {
         <div className="container-wide flex items-center justify-between">
           {/* Brand */}
           <Link href="/" className="flex flex-col gap-0.5 group">
-            <span className="font-accent text-ivory text-sm tracking-[0.25em] group-hover:text-gold transition-colors">
+            <span className="font-display text-ivory text-lg tracking-[0.14em] group-hover:text-gold transition-colors duration-200">
               NEXCELIA
             </span>
             <span className="label-text text-[0.55rem] tracking-[0.22em] text-ivory-dim">
@@ -59,7 +59,7 @@ export function Navbar() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-accent text-[0.65rem] tracking-widest uppercase text-midnight bg-gold hover:bg-gold-lt transition-colors duration-300"
+              className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-body text-[0.78rem] font-medium tracking-[0.08em] uppercase text-midnight bg-gold hover:bg-gold-lt transition-colors duration-200"
             >
               Private Enquiry →
             </a>
@@ -112,7 +112,7 @@ export function Navbar() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 + i * 0.07 }}
-                  className="font-display text-3xl text-ivory hover:text-gold transition-colors"
+                  className="font-display text-4xl text-ivory hover:text-gold transition-colors duration-200"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}
@@ -123,7 +123,7 @@ export function Navbar() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5 }}
-                className="mt-4 px-8 py-3 font-accent text-xs tracking-widest uppercase text-midnight bg-gold"
+                className="mt-4 px-8 py-3 font-body text-xs font-medium tracking-[0.08em] uppercase text-midnight bg-gold"
                 onClick={() => setMobileOpen(false)}
               >
                 Private Enquiry →

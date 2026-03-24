@@ -55,11 +55,11 @@ export function PostCard({ post, featured = false }: PostCardProps) {
                 {post.category.title}
               </span>
             )}
-            <h2 className="font-display text-3xl lg:text-4xl text-ivory mb-3 max-w-2xl group-hover:text-gold-lt transition-colors">
+            <h2 className="font-display text-[36px] leading-[1.3] text-ivory mb-4 max-w-2xl group-hover:text-gold-lt transition-colors duration-200">
               {post.title}
             </h2>
             {post.excerpt && (
-              <p className="text-ivory-dim text-sm font-body leading-relaxed max-w-xl mb-4 hidden lg:block">
+              <p className="text-body max-w-xl mb-4 hidden lg:block">
                 {post.excerpt}
               </p>
             )}
@@ -81,9 +81,19 @@ export function PostCard({ post, featured = false }: PostCardProps) {
     <Link href={href} className="group block h-full">
       <div
         className="h-full flex flex-col"
-        style={{ border: '1px solid var(--border)', background: 'var(--navy-mid)', transition: 'border-color 0.3s' }}
-        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border-bright)' }}
-        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'var(--border)' }}
+        style={{ border: '1px solid var(--border)', background: 'var(--navy-mid)', transition: 'border-color 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease' }}
+        onMouseEnter={(e) => {
+          const el = e.currentTarget as HTMLElement
+          el.style.borderColor = 'var(--border-bright)'
+          el.style.boxShadow = '0 0 0 1px rgba(176,138,82,0.2), 0 12px 28px rgba(8,12,20,0.35)'
+          el.style.filter = 'brightness(1.03)'
+        }}
+        onMouseLeave={(e) => {
+          const el = e.currentTarget as HTMLElement
+          el.style.borderColor = 'var(--border)'
+          el.style.boxShadow = 'none'
+          el.style.filter = 'brightness(1)'
+        }}
       >
         {/* Image */}
         <div className="relative overflow-hidden" style={{ aspectRatio: '3/2', background: 'var(--navy-light)' }}>
@@ -104,15 +114,15 @@ export function PostCard({ post, featured = false }: PostCardProps) {
         </div>
 
         {/* Content */}
-        <div className="flex flex-col flex-1 p-6 gap-3">
+        <div className="flex flex-col flex-1 p-7 gap-3">
           {post.category && (
             <span className="label-text text-[0.55rem]">{post.category.title}</span>
           )}
-          <h3 className="font-display text-xl text-ivory group-hover:text-gold-lt transition-colors leading-snug">
+          <h3 className="font-display text-[22px] leading-[1.4] text-ivory group-hover:text-gold-lt transition-colors duration-200">
             {post.title}
           </h3>
           {post.excerpt && (
-            <p className="text-ivory-dim text-xs leading-relaxed font-body flex-1 line-clamp-3">
+            <p className="text-body flex-1 line-clamp-3">
               {post.excerpt}
             </p>
           )}

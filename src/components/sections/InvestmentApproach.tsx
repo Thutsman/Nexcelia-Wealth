@@ -27,7 +27,7 @@ export function InvestmentApproach() {
           {INVESTMENT_PRINCIPLES.map((principle, i) => (
             <RevealWrapper key={principle.number} delay={0.1 + i * 0.1}>
               <div
-                className="group relative p-8 lg:p-10 flex flex-col gap-4 transition-all duration-300"
+                className="group card-base relative p-8 lg:p-10 flex flex-col gap-4 transition-all duration-200"
                 style={{
                   borderRight: i % 2 === 0 ? '1px solid var(--border)' : 'none',
                   borderBottom: i < 2 ? '1px solid var(--border)' : 'none',
@@ -45,10 +45,10 @@ export function InvestmentApproach() {
                 >
                   {principle.number}
                 </span>
-                <h3 className="font-display text-xl text-ivory font-medium">
+                <h3 className="font-display text-[22px] leading-[1.4] text-ivory font-medium">
                   {principle.title}
                 </h3>
-                <p className="text-ivory-dim text-sm leading-relaxed font-body">
+                <p className="text-body">
                   {principle.body}
                 </p>
               </div>

@@ -41,10 +41,10 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
             <span className="gold-rule" />
             From the Principals
           </span>
-          <h1 className="font-display text-5xl lg:text-6xl text-ivory mb-4 font-light">
+          <h1 className="text-display text-ivory heading-gap">
             Insights &amp; <em className="text-gold">Perspectives</em>
           </h1>
-          <p className="text-ivory-dim text-base font-body max-w-xl">
+          <p className="text-body max-w-xl">
             Investment outlooks, market analysis, and perspectives on wealth preservation,
             conservation, and the evolving landscape of African and global capital markets.
           </p>
@@ -61,7 +61,7 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
             <a
               key={cat}
               href={cat === 'All' ? '/insights' : `/insights?category=${encodeURIComponent(cat)}`}
-              className="flex-shrink-0 px-4 py-1.5 font-accent text-[0.6rem] tracking-widest uppercase transition-all duration-200"
+              className="flex-shrink-0 px-4 py-1.5 font-body text-[12px] font-medium tracking-[0.08em] uppercase transition-all duration-200"
               style={{
                 border: `1px solid ${activeCategory === cat ? 'var(--border-bright)' : 'var(--border)'}`,
                 color: activeCategory === cat ? 'var(--gold)' : 'var(--ivory-dim)',
@@ -78,8 +78,8 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
       <div className="container-wide section-padding">
         {filteredPosts.length === 0 ? (
           <div className="py-24 text-center">
-            <p className="font-display text-2xl text-ivory-dim mb-4">No articles yet</p>
-            <p className="text-ivory-dim text-sm font-body">
+            <p className="font-display text-[22px] leading-[1.4] text-ivory mb-4">No articles yet</p>
+            <p className="text-body">
               Check back soon — our principals are working on new perspectives.
             </p>
           </div>

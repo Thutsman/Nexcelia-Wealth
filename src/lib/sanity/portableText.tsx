@@ -7,43 +7,21 @@ export const portableTextComponents: PortableTextComponents = {
   block: {
     h2: ({ children }) => (
       <h2
-        style={{
-          fontFamily: 'var(--font-playfair)',
-          fontSize: '36px',
-          color: 'var(--gold)',
-          fontWeight: 400,
-          lineHeight: 1.15,
-          marginTop: '2.75rem',
-          marginBottom: '1.25rem',
-        }}
+        className="text-heading text-gold"
+        style={{ marginTop: '2.75rem', marginBottom: '1.25rem', lineHeight: 1.15 }}
       >
         {children}
       </h2>
     ),
     h3: ({ children }) => (
-      <h3
-        style={{
-          fontFamily: 'var(--font-playfair)',
-          fontSize: '22px',
-          color: 'var(--ivory)',
-          fontWeight: 400,
-          lineHeight: 1.4,
-          marginTop: '2.25rem',
-          marginBottom: '1rem',
-        }}
-      >
+      <h3 className="text-card-heading text-ivory" style={{ marginTop: '2.25rem', marginBottom: '1rem' }}>
         {children}
       </h3>
     ),
     normal: ({ children }) => (
       <p
-        style={{
-          fontFamily: 'var(--font-eb-garamond)',
-          fontSize: '18px',
-          color: 'var(--ivory-dim)',
-          lineHeight: 1.8,
-          marginBottom: '1.4rem',
-        }}
+        className="text-body"
+        style={{ marginBottom: '1.4rem' }}
       >
         {children}
       </p>
@@ -70,7 +48,7 @@ export const portableTextComponents: PortableTextComponents = {
       <strong style={{ color: 'var(--ivory)', fontWeight: 600 }}>{children}</strong>
     ),
     em: ({ children }) => (
-      <em style={{ color: 'var(--gold-lt)', fontStyle: 'italic' }}>{children}</em>
+      <em style={{ color: 'var(--gold-lt)', fontStyle: 'normal', fontWeight: 500 }}>{children}</em>
     ),
     link: ({ children, value }) => (
       <a
@@ -110,7 +88,7 @@ export const portableTextComponents: PortableTextComponents = {
                 fontSize: '0.8rem',
                 color: 'var(--ivory-dim)',
                 textAlign: 'center',
-                fontStyle: 'italic',
+                fontStyle: 'normal',
               }}
             >
               {value.caption}

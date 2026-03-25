@@ -42,7 +42,7 @@ export function GlobalPresence() {
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">🌿</span>
                   <div>
-                    <p className="font-display text-[22px] leading-[1.4] text-ivory mb-3">
+                    <p className="text-card-heading text-ivory mb-3">
                       Regional Context Desk
                     </p>
                     <p className="text-body">
@@ -93,7 +93,7 @@ export function GlobalPresence() {
                   />
                   <div className="flex-1">
                     <div className="flex items-baseline gap-3">
-                      <span className="font-display text-[22px] leading-[1.4] text-ivory">{loc.city}</span>
+                      <span className="text-card-heading text-ivory">{loc.city}</span>
                       <span className="text-muted text-[15px] font-body">— {loc.country}</span>
                     </div>
                     <p className="label-text text-[0.58rem] text-ivory-dim mt-0.5">{loc.role}</p>

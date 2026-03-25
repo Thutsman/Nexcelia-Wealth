@@ -45,7 +45,7 @@ export function InvestmentApproach() {
                 >
                   {principle.number}
                 </span>
-                <h3 className="font-display text-[22px] leading-[1.4] text-ivory font-medium">
+                <h3 className="text-card-heading text-ivory">
                   {principle.title}
                 </h3>
                 <p className="text-body">

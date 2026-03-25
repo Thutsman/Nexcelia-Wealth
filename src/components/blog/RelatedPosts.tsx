@@ -18,7 +18,7 @@ export function RelatedPosts({ posts, basePath, title = 'Related Insights' }: Re
     >
       <div className="mb-8">
         <span className="label-text text-[0.6rem]">Continue Reading</span>
-        <h2 className="font-display text-[36px] leading-[1.3] text-ivory mt-3">{title}</h2>
+        <h2 className="text-heading text-ivory mt-3">{title}</h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {posts.map((post) => (

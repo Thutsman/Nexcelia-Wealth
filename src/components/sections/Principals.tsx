@@ -77,7 +77,7 @@ export function Principals() {
                 )}
                 {!principal.image && (
                   <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 font-display italic text-[1.3rem]"
+                    className="w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 font-display text-[1.3rem]"
                     style={{
                       background: '#0F2B1A',
                       color: 'var(--gold-lt)',
@@ -102,7 +102,7 @@ export function Principals() {
                 {/* Subtitle — italic gold */}
                 <p
                   className="font-display text-gold"
-                  style={{ fontSize: '22px', fontStyle: 'italic', lineHeight: 1.4 }}
+                  style={{ fontSize: '22px', fontStyle: 'normal', lineHeight: 1.4 }}
                 >
                   {principal.subtitle}
                 </p>

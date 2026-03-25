@@ -24,7 +24,7 @@ export function Philosophy() {
             <RevealWrapper delay={0.2}>
               <h2 className="text-heading text-ivory section-gap">
                 Southern Africa stands at the apex of an{' '}
-                <em className="text-gold italic" style={{ color: 'var(--gold-lt)' }}>epochal transformation</em>
+                <em className="text-gold" style={{ color: 'var(--gold-lt)' }}>epochal transformation</em>
               </h2>
             </RevealWrapper>
 
@@ -60,7 +60,7 @@ export function Philosophy() {
                     className="absolute top-0 left-0 right-0 h-px origin-left transition-all duration-500 scale-x-0 group-hover:scale-x-100"
                     style={{ background: 'var(--gold)' }}
                   />
-                  <h3 className="font-display text-[22px] leading-[1.4] text-ivory mb-4 font-medium">
+                  <h3 className="text-card-heading text-ivory mb-4">
                     {value.title}
                   </h3>
                   <p className="text-body">

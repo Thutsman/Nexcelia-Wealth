@@ -38,10 +38,10 @@ export function Navbar() {
         <div className="container-wide flex items-center justify-between">
           {/* Brand */}
           <Link href="/" className="flex flex-col gap-0.5 group">
-            <span className="font-display text-ivory text-lg tracking-[0.14em] group-hover:text-gold transition-colors duration-200">
+            <span className="font-display text-ivory text-lg font-medium tracking-[0.12em] group-hover:text-gold transition-colors duration-200">
               VACHEROT
             </span>
-            <span className="label-text text-[0.55rem] tracking-[0.22em] text-ivory-dim">
+            <span className="label-text text-[0.55rem] tracking-[0.20em] text-ivory-dim">
               Capital Strategy · Southern Africa
             </span>
           </Link>
@@ -59,7 +59,7 @@ export function Navbar() {
           <div className="flex items-center gap-4">
             <a
               href="#contact"
-              className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-body text-[0.78rem] font-medium tracking-[0.08em] uppercase text-midnight bg-gold hover:bg-gold-lt transition-colors duration-200"
+              className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-body text-[0.8rem] font-medium tracking-[0.06em] uppercase text-midnight bg-gold hover:bg-gold-lt transition-colors duration-200"
             >
               Begin Conversation →
             </a>

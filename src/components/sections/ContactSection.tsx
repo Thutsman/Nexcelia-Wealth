@@ -113,12 +113,12 @@ export function ContactSection() {
             >
               {status === 'success' ? (
                 <div className="flex flex-col gap-4 items-start py-8">
-                  <div className="text-gold text-3xl font-display italic">Thank you.</div>
+                  <div className="text-gold text-3xl font-display">Thank you.</div>
                   <p className="text-body">
                     Your enquiry has been received. A principal will be in touch within three
                     business days. A confirmation has been sent to your email address.
                   </p>
-                  <p className="text-ivory-dim text-xs font-body mt-2 italic">
+                  <p className="text-ivory-dim text-xs font-body mt-2">
                     — Nexcelia Wealth, Private Office
                   </p>
                 </div>

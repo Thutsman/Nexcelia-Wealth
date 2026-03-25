@@ -55,7 +55,7 @@ export function FocusAreas() {
                 <div style={{ color: area.accentColor }}>{icons[area.icon]}</div>
 
                 {/* Title */}
-                <h3 className="font-display text-[22px] leading-[1.4] text-ivory font-medium">{area.label}</h3>
+                <h3 className="text-card-heading text-ivory">{area.label}</h3>
 
                 {/* Body */}
                 <p className="text-body flex-1">

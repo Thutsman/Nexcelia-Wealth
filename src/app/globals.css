@@ -12,7 +12,7 @@
     --gold-lt:       #d4af50;
     --gold-pale:     #e8c96a;
     --ivory:         #f2ede4;
-    --ivory-dim:     #c8c8c8;
+    --ivory-dim:     #d4d4d4;
     --text-muted:    #9a9a9a;
     --white:         #faf8f4;
     --border:        rgba(255, 255, 255, 0.08);
@@ -37,7 +37,7 @@
     color: var(--ivory);
     font-family: var(--font-eb-garamond), Georgia, serif;
     font-size: 18px;
-    line-height: 1.7;
+    line-height: 1.85;
     cursor: none;
   }
 
@@ -72,8 +72,14 @@
   p {
     font-family: var(--font-eb-garamond), Georgia, serif;
     font-size: 18px;
-    line-height: 1.8;
+    line-height: 1.85;
     color: var(--ivory-dim);
+    max-width: 68ch;
+  }
+
+  /* Reserve italics for quotes (`blockquote`) rather than incidental emphasis. */
+  em, i {
+    font-style: normal;
   }
 
   a { color: inherit; text-decoration: none; }
@@ -121,7 +127,7 @@
     font-family: var(--font-playfair), Georgia, serif;
     font-weight: 400;
     line-height: 0.92;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.012em;
   }
 
   .text-heading {
@@ -129,13 +135,14 @@
     font-family: var(--font-playfair), Georgia, serif;
     font-weight: 400;
     line-height: 1.08;
+    letter-spacing: -0.012em;
   }
 
   .text-subhead {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-family: var(--font-eb-garamond), serif;
     font-weight: 400;
-    line-height: 1.8;
+    line-height: 1.85;
     color: var(--ivory-dim);
   }
 
@@ -150,9 +157,26 @@
 
   .text-body {
     font-family: var(--font-eb-garamond), Georgia, serif;
-    font-size: 1rem;
-    line-height: 1.8;
+    font-size: 1.125rem;
+    line-height: 1.85;
     color: var(--ivory-dim);
+    max-width: 68ch;
+  }
+
+  .text-card-heading {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: 1.5rem; /* ~24px */
+    line-height: 1.35;
+    font-weight: 500;
+    letter-spacing: -0.012em;
+  }
+
+  .text-card-heading-featured {
+    font-family: var(--font-playfair), Georgia, serif;
+    font-size: 2.375rem; /* ~38px */
+    line-height: 1.18;
+    font-weight: 500;
+    letter-spacing: -0.012em;
   }
 
   .text-muted {
@@ -183,9 +207,9 @@
   .nav-link {
     position: relative;
     font-family: var(--font-didact), system-ui, sans-serif;
-    font-size: 0.62rem;
-    font-weight: 400;
-    letter-spacing: 0.28em;
+    font-size: 0.64rem;
+    font-weight: 500;
+    letter-spacing: 0.24em;
     text-transform: uppercase;
     color: var(--ivory-dim);
     transition: color 200ms ease;

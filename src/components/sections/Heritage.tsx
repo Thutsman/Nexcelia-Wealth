@@ -34,11 +34,11 @@ export function Heritage() {
                 <span className="text-4xl">🇿🇼</span>
                 <div>
                   <p className="label-text text-[0.6rem]">Southern Africa</p>
-                  <h3 className="font-display text-[22px] leading-[1.4] text-ivory">Zimbabwe</h3>
+                  <h3 className="text-card-heading text-ivory">Zimbabwe</h3>
                 </div>
               </div>
               <GoldDivider />
-              <h4 className="font-display text-[22px] leading-[1.4] text-gold font-medium">
+              <h4 className="text-card-heading text-gold">
                 Where the journey began
               </h4>
               <p className="text-body">
@@ -76,11 +76,11 @@ export function Heritage() {
                 <span className="text-4xl">🇳🇱</span>
                 <div>
                   <p className="label-text text-[0.6rem]">Northern Europe</p>
-                  <h3 className="font-display text-[22px] leading-[1.4] text-ivory">Netherlands</h3>
+                  <h3 className="text-card-heading text-ivory">Netherlands</h3>
                 </div>
               </div>
               <GoldDivider />
-              <h4 className="font-display text-[22px] leading-[1.4] text-gold font-medium">
+              <h4 className="text-card-heading text-gold">
                 Our European anchor
               </h4>
               <p className="text-body">

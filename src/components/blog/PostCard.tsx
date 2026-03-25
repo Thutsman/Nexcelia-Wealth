@@ -53,7 +53,7 @@ export function PostCard({ post, basePath, featured = false }: PostCardProps) {
                 {post.category.title}
               </span>
             )}
-            <h2 className="font-display text-[36px] leading-[1.3] text-ivory mb-4 max-w-2xl group-hover:text-gold-lt transition-colors duration-200">
+            <h2 className="text-card-heading-featured text-ivory mb-4 max-w-2xl group-hover:text-gold-lt transition-colors duration-200">
               {post.title}
             </h2>
             {post.excerpt && (
@@ -104,7 +104,7 @@ export function PostCard({ post, basePath, featured = false }: PostCardProps) {
           {post.category && (
             <span className="label-text text-[0.55rem]">{post.category.title}</span>
           )}
-          <h3 className="font-display text-[22px] leading-[1.4] text-ivory group-hover:text-gold-lt transition-colors duration-200">
+          <h3 className="text-card-heading text-ivory group-hover:text-gold-lt transition-colors duration-200">
             {post.title}
           </h3>
           {post.excerpt && (

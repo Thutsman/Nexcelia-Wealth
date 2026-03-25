@@ -72,7 +72,7 @@ export function InsightsTeaser() {
                 <p className="label-text text-[0.52rem] mb-4" style={{ color: item.accent }}>
                   {item.category}
                 </p>
-                <h3 className="font-display text-[1.4rem] leading-[1.2] mb-4" style={{ color: 'var(--navy)' }}>
+                <h3 className="text-card-heading mb-4" style={{ color: 'var(--navy)' }}>
                   {item.title}
                 </h3>
                 <p className="text-[0.95rem] leading-[1.75]" style={{ color: '#6a645c' }}>

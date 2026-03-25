@@ -21,6 +21,7 @@ export const MOCK_CONTENT: ContentItem[] = [
     status: 'published',
     title: "Africa's $16.5 Billion AI Horizon",
     slug: 'africa-ai-horizon-2030',
+    coverImageUrl: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=1400&q=80',
     excerpt:
       'Africa is projected to sustain one of the fastest AI growth trajectories globally through 2030, with meaningful momentum in the SADC corridor.',
     publishedAt: '2026-02-10T08:00:00.000Z',
@@ -39,6 +40,7 @@ export const MOCK_CONTENT: ContentItem[] = [
     status: 'published',
     title: "Zimbabwe's Mining Boom: The Mineral Story Reshaping Regional Capital",
     slug: 'zimbabwe-mining-boom-mineral-story',
+    coverImageUrl: 'https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?w=1400&q=80',
     excerpt:
       'Critical minerals and accelerating project finance are repositioning Zimbabwe in global transition supply chains.',
     publishedAt: '2026-01-22T08:00:00.000Z',
@@ -55,6 +57,7 @@ export const MOCK_CONTENT: ContentItem[] = [
     status: 'published',
     title: 'Tourism and Conservation Capital in Southern Africa',
     slug: 'tourism-conservation-capital-southern-africa',
+    coverImageUrl: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1400&q=80',
     excerpt:
       'Conservation-linked tourism is emerging as a defensible, hard-asset adjacency with durable foreign-currency demand.',
     publishedAt: '2025-12-15T08:00:00.000Z',
@@ -71,6 +74,7 @@ export const MOCK_CONTENT: ContentItem[] = [
     status: 'published',
     title: 'Nexcelia Opens Advisory Operations in The Hague',
     slug: 'nexcelia-opens-advisory-operations-the-hague',
+    coverImageUrl: 'https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?w=1400&q=80',
     excerpt:
       'The new office expands our cross-border structuring and governance support for internationally active families.',
     publishedAt: '2026-03-02T08:00:00.000Z',
@@ -88,6 +92,7 @@ export const MOCK_CONTENT: ContentItem[] = [
     status: 'published',
     title: 'Quarterly Market Bulletin: Global Risk Regimes Remain Elevated',
     slug: 'quarterly-market-bulletin-global-risk-regimes-elevated',
+    coverImageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1400&q=80',
     excerpt:
       'Our latest bulletin highlights rates volatility, energy transitions, and private market repricing dynamics.',
     publishedAt: '2026-02-26T08:00:00.000Z',
@@ -104,6 +109,7 @@ export const MOCK_CONTENT: ContentItem[] = [
     status: 'published',
     title: 'Conservation Finance Program Expands Across Southern Africa',
     slug: 'conservation-finance-program-expands-southern-africa',
+    coverImageUrl: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1400&q=80',
     excerpt:
       'The initiative adds two new projects aligned with long-horizon stewardship and measurable ecological outcomes.',
     publishedAt: '2026-01-30T08:00:00.000Z',

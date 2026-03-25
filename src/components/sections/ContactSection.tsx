@@ -64,27 +64,27 @@ export function ContactSection() {
             <RevealWrapper delay={0.1}>
               <SectionLabel className="mb-5 inline-flex items-center gap-3">
                 <span className="gold-rule" />
-                Private Enquiry
+                Engage Vacherot
               </SectionLabel>
             </RevealWrapper>
             <RevealWrapper delay={0.2}>
               <h2 className="text-heading text-ivory heading-gap">
-                Begin a <em className="text-gold">conversation</em>
+                Begin the <em className="text-gold">Conversation</em>
               </h2>
             </RevealWrapper>
             <RevealWrapper delay={0.3}>
               <p className="text-body section-gap max-w-sm">
-                All enquiries are treated with the strictest confidence. Our principals
-                personally review each request and will respond within three business days.
+                Vacherot engages with a limited number of capital partners, co-investors, and
+                strategic collaborators each year. All enquiries are handled with strict confidentiality.
               </p>
             </RevealWrapper>
 
             <RevealWrapper delay={0.4}>
               <div className="flex flex-col gap-6">
                 {[
-                  { label: 'Principal Office', value: 'Bulawayo, Zimbabwe' },
-                  { label: 'European Office', value: 'The Hague, Netherlands' },
-                  { label: 'Email', value: 'office@nexceliawealth.com', isEmail: true },
+                  { label: 'Principal Office', value: 'Harare, Zimbabwe' },
+                  { label: 'Global Offices', value: 'Shanghai · The Hague' },
+                  { label: 'Email', value: 'enquiries@vacherot.com', isEmail: true },
                 ].map((item) => (
                   <div key={item.label} className="flex flex-col gap-1">
                     <GoldDivider className="mb-3" />
@@ -162,11 +162,10 @@ export function ContactSection() {
                       style={{ background: 'var(--navy-light)' }}
                     >
                       <option value="">Please select...</option>
-                      <option value="Wealth Advisory">Wealth Advisory</option>
-                      <option value="Investment Opportunity">Investment Opportunity</option>
-                      <option value="Family Office Services">Family Office Services</option>
-                      <option value="Conservation Investment">Conservation Investment</option>
-                      <option value="Partnership">Partnership / Collaboration</option>
+                      <option value="Investment Partnership">Investment Partnership</option>
+                      <option value="Co-investment Opportunity">Co-investment Opportunity</option>
+                      <option value="Strategic Advisory">Strategic Advisory</option>
+                      <option value="Capital Deployment Query">Capital Deployment Query</option>
                       <option value="General">General Enquiry</option>
                     </select>
                     {errors.enquiryType && (

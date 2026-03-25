@@ -21,9 +21,9 @@ const config: Config = {
         'off-white': 'var(--white)',
       },
       fontFamily: {
-        display: ['var(--font-cormorant)', 'Georgia', 'serif'],
-        body:    ['var(--font-dm-sans)',   'system-ui', 'sans-serif'],
-        accent:  ['var(--font-dm-sans)',   'system-ui', 'sans-serif'],
+        display: ['var(--font-playfair)', 'Georgia', 'serif'],
+        body:    ['var(--font-eb-garamond)', 'Georgia', 'serif'],
+        accent:  ['var(--font-didact)', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'gold-gradient': 'linear-gradient(135deg, var(--gold) 0%, var(--gold-lt) 100%)',

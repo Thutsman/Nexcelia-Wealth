@@ -5,9 +5,9 @@ import { InsightsGrid } from '@/components/blog/InsightsGrid'
 export const revalidate = 3600
 
 export const metadata: Metadata = {
-  title: 'Insights & Perspectives',
+  title: 'Vacherot Insights',
   description:
-    'Investment outlooks, market analysis, and perspectives on wealth preservation from the Nexcelia principals.',
+    'Capital intelligence, sector analysis, and market perspectives from the Vacherot principals.',
 }
 
 interface InsightsPageProps {
@@ -35,21 +35,21 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
       <div
         className="pt-32 pb-16 section-padding"
         style={{
-          background: 'linear-gradient(180deg, var(--navy-mid) 0%, var(--midnight) 100%)',
+          background: 'linear-gradient(180deg, var(--navy) 0%, var(--midnight) 100%)',
           borderBottom: '1px solid var(--border)',
         }}
       >
         <div className="container-wide">
           <span className="label-text text-[0.6rem] inline-flex items-center gap-3 mb-5">
             <span className="gold-rule" />
-            From the Principals
+            Capital Intelligence
           </span>
           <h1 className="text-display text-ivory heading-gap">
-            Insights &amp; <em className="text-gold">Perspectives</em>
+            Vacherot <em className="text-gold">Insights</em>
           </h1>
           <p className="text-body max-w-xl">
-            Investment outlooks, market analysis, and perspectives on wealth preservation,
-            conservation, and the evolving landscape of African and global capital markets.
+            Structural analysis across AI, fintech, resources, real estate, and infrastructure
+            in Southern Africa, with institutional context for long-duration capital.
           </p>
         </div>
       </div>
@@ -57,7 +57,7 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
       {/* Category filters */}
       <div
         className="sticky top-[60px] z-30 py-4"
-        style={{ background: 'var(--navy)', borderBottom: '1px solid var(--border)' }}
+        style={{ background: 'var(--navy-mid)', borderBottom: '1px solid var(--border)' }}
       >
         <div className="container-wide flex items-center gap-3 overflow-x-auto scrollbar-hide">
           {['All', ...categories.map((c) => c.title)].map((cat) => (
@@ -83,7 +83,7 @@ export default async function InsightsPage({ searchParams }: InsightsPageProps) 
           <div className="py-24 text-center">
             <p className="font-display text-[22px] leading-[1.4] text-ivory mb-4">No articles yet</p>
             <p className="text-body">
-              Check back soon — our principals are working on new perspectives.
+              Check back soon - new analysis is currently in production.
             </p>
           </div>
         ) : (

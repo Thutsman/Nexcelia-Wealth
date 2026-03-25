@@ -39,10 +39,10 @@ export function Navbar() {
           {/* Brand */}
           <Link href="/" className="flex flex-col gap-0.5 group">
             <span className="font-display text-ivory text-lg tracking-[0.14em] group-hover:text-gold transition-colors duration-200">
-              NEXCELIA
+              VACHEROT
             </span>
             <span className="label-text text-[0.55rem] tracking-[0.22em] text-ivory-dim">
-              Private Wealth & Family Office
+              Capital Strategy · Southern Africa
             </span>
           </Link>
 
@@ -61,7 +61,7 @@ export function Navbar() {
               href="#contact"
               className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 font-body text-[0.78rem] font-medium tracking-[0.08em] uppercase text-midnight bg-gold hover:bg-gold-lt transition-colors duration-200"
             >
-              Private Enquiry →
+              Begin Conversation →
             </a>
 
             {/* Hamburger */}
@@ -126,7 +126,7 @@ export function Navbar() {
                 className="mt-4 px-8 py-3 font-body text-xs font-medium tracking-[0.08em] uppercase text-midnight bg-gold"
                 onClick={() => setMobileOpen(false)}
               >
-                Private Enquiry →
+                Begin Conversation →
               </motion.a>
             </div>
           </motion.div>

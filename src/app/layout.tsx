@@ -1,25 +1,25 @@
 import type { Metadata } from 'next'
-import { cormorant, dmSans } from '@/lib/fonts'
+import { playfairDisplay, didactGothic, ebGaramond } from '@/lib/fonts'
 import './globals.css'
 
 export const metadata: Metadata = {
   title: {
-    default: 'Nexcelia Wealth — Private Wealth & Family Office',
-    template: '%s | Nexcelia Wealth',
+    default: 'Vacherot — Capital Strategy · Southern Africa',
+    template: '%s | Vacherot',
   },
   description:
-    'A private family office managing multi-generational wealth across Africa, Europe and Asia. Headquartered in Bulawayo, Zimbabwe.',
+    'A principal-led wealth office deploying capital across Southern Africa with global institutional discipline.',
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexceliawealth.com'),
   openGraph: {
     type: 'website',
-    siteName: 'Nexcelia Wealth',
-    title: 'Nexcelia Wealth — Private Wealth & Family Office',
+    siteName: 'Vacherot',
+    title: 'Vacherot — Capital Strategy · Southern Africa',
     description:
-      'A private family office managing multi-generational wealth across Africa, Europe and Asia.',
+      'A principal-led wealth office deploying capital across Southern Africa with global institutional discipline.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nexcelia Wealth',
+    title: 'Vacherot',
   },
   robots: {
     index: true,
@@ -31,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${dmSans.variable}`}
+      className={`${playfairDisplay.variable} ${didactGothic.variable} ${ebGaramond.variable}`}
     >
       <body>{children}</body>
     </html>

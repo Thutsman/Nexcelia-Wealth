@@ -17,14 +17,14 @@ export function Philosophy() {
             <RevealWrapper delay={0.1}>
               <SectionLabel className="mb-5 inline-flex items-center gap-3">
                 <span className="gold-rule" />
-                Our Philosophy
+                Our Mandate
               </SectionLabel>
             </RevealWrapper>
 
             <RevealWrapper delay={0.2}>
               <h2 className="text-heading text-ivory section-gap">
-                Wealth is a responsibility,{' '}
-                <em className="text-gold italic" style={{ color: 'var(--gold-lt)' }}>not merely a reward</em>
+                Southern Africa stands at the apex of an{' '}
+                <em className="text-gold italic" style={{ color: 'var(--gold-lt)' }}>epochal transformation</em>
               </h2>
             </RevealWrapper>
 
@@ -33,19 +33,16 @@ export function Philosophy() {
                 className="pl-6 section-gap italic font-display text-[22px] text-ivory leading-[1.7]"
                 style={{ borderLeft: '2px solid var(--gold)' }}
               >
-                &ldquo;We build relationships measured in generations, not reporting periods.
-                True stewardship means protecting what was entrusted to us and growing
-                what will be passed on.&rdquo;
+                &ldquo;Capital deployed with conviction, guided by knowledge, anchored in place.&rdquo;
               </blockquote>
             </RevealWrapper>
 
             <RevealWrapper delay={0.4}>
               <p className="text-body max-w-xl">
-                Nexcelia operates as a principal-led advisory, which means our incentives are
-                genuinely aligned with your family&rsquo;s long-term interests. We do not
-                manage funds, charge basis points on AUM, or receive third-party commissions.
-                Our counsel is independent, confidential, and structured around your family&rsquo;s
-                unique goals and governance needs.
+                Vacherot is a principal-led wealth office deploying capital across Southern
+                Africa&apos;s most transformative sectors. We are not passive allocators:
+                we are active architects of growth, combining regional market intelligence
+                with global institutional standards.
               </p>
             </RevealWrapper>
           </div>

@@ -9,7 +9,7 @@ import { icons } from '@/data/icons'
 export function FocusAreas() {
   return (
     <section
-      id="focus-areas"
+      id="focus"
       className="section-padding"
       style={{ background: 'var(--midnight)' }}
     >
@@ -19,11 +19,11 @@ export function FocusAreas() {
           <div className="text-center mb-14">
             <SectionLabel className="mb-5 inline-flex items-center gap-3">
               <span className="gold-rule" />
-              Investment Focus
+              Investment Mandate
               <span className="gold-rule" style={{ transform: 'rotate(180deg)' }} />
             </SectionLabel>
             <h2 className="text-heading text-ivory">
-              Five Pillars of <em className="text-gold">Capital Deployment</em>
+              Seven Sectors. <em className="text-gold">One Continent.</em>
             </h2>
           </div>
         </RevealWrapper>

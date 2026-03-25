@@ -13,11 +13,11 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-block mb-4">
-              <span className="font-display text-ivory text-2xl tracking-[0.1em]">NEXCELIA</span>
+              <span className="font-display text-ivory text-2xl tracking-[0.1em]">VACHEROT</span>
             </Link>
             <p className="text-body max-w-xs">
-              A private family office managing multi-generational wealth across Africa, Europe,
-              and Asia. Founded on the principles of integrity, discretion, and long-term stewardship.
+              Principal-led capital strategy across Southern Africa, connecting local opportunity
+              to institutional-grade global execution.
             </p>
             <div className="flex gap-4 mt-6">
               <a
@@ -45,9 +45,6 @@ export function Footer() {
               <Link href="/insights" className="text-ivory-dim hover:text-ivory text-[17px] font-body transition-colors duration-200">
                 Insights
               </Link>
-              <Link href="/news" className="text-ivory-dim hover:text-ivory text-[17px] font-body transition-colors duration-200">
-                News
-              </Link>
             </nav>
           </div>
 
@@ -55,15 +52,15 @@ export function Footer() {
           <div>
             <p className="label-text mb-5 text-[0.6rem]">Contact</p>
             <div className="flex flex-col gap-3">
-              <p className="text-ivory-dim text-[17px] font-body">Bulawayo, Zimbabwe</p>
-              <p className="text-ivory-dim text-[17px] font-body">The Hague, Netherlands</p>
+              <p className="text-ivory-dim text-[17px] font-body">Harare, Zimbabwe</p>
               <p className="text-ivory-dim text-[17px] font-body">Shanghai, China</p>
+              <p className="text-ivory-dim text-[17px] font-body">The Hague, Netherlands</p>
               <GoldDivider className="my-2" />
               <a
-                href="mailto:office@nexceliawealth.com"
+                href="mailto:enquiries@vacherot.com"
                 className="text-gold hover:text-gold-lt text-[17px] font-body transition-colors duration-200"
               >
-                office@nexceliawealth.com
+                enquiries@vacherot.com
               </a>
             </div>
           </div>
@@ -73,7 +70,7 @@ export function Footer() {
         <GoldDivider width="full" className="mb-6 opacity-30" />
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <p className="text-ivory-dim text-xs font-body">
-            © {year} Nexcelia Wealth (Pvt) Ltd. All rights reserved.
+            © {year} Vacherot Capital Strategy. All rights reserved.
           </p>
           <div className="flex gap-6">
             <Link href="/privacy" className="text-ivory-dim hover:text-ivory text-xs font-body transition-colors">

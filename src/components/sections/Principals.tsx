@@ -4,12 +4,21 @@ import { SectionLabel } from '@/components/ui/SectionLabel'
 import { GoldDivider } from '@/components/ui/GoldDivider'
 import { PRINCIPALS } from '@/data/homepage'
 
+function getInitials(name: string) {
+  return name
+    .split(' ')
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part[0]?.toUpperCase() ?? '')
+    .join('')
+}
+
 export function Principals() {
   return (
     <section
       id="principals"
       className="section-padding"
-      style={{ background: 'var(--navy)' }}
+      style={{ background: 'var(--ivory)' }}
     >
       <div className="container-wide">
 
@@ -18,29 +27,28 @@ export function Principals() {
           <div className="text-center mb-16">
             <SectionLabel className="mb-6 inline-flex items-center gap-3">
               <span className="gold-rule" />
-              The Principals
+              Leadership
               <span className="gold-rule" style={{ transform: 'rotate(180deg)' }} />
             </SectionLabel>
             <h2
-              className="font-display text-ivory mb-6"
-              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 52px)', fontWeight: 600, lineHeight: 1.2 }}
+              className="font-display mb-6"
+              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 52px)', fontWeight: 600, lineHeight: 1.2, color: 'var(--navy)' }}
             >
-              Grounded in <em className="text-gold">experience</em>. Guided by values.
+              The Principals of <em className="text-gold">Vacherot</em>
             </h2>
             <p
-              className="text-body mx-auto"
-              style={{ maxWidth: '36rem' }}
+              className="mx-auto"
+              style={{ maxWidth: '36rem', color: '#7A736A' }}
             >
-              Nexcelia Wealth is directed by two principals whose backgrounds are distinct but
-              complementary — one rooted in academic economics and international financial
-              regulation, the other in technology markets and global commercial practice.
+              Three principals. Three continents of operating context. One singular focus on
+              Southern Africa&apos;s structural transformation.
             </p>
           </div>
         </RevealWrapper>
 
         {/* Principal cards — side by side */}
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-0"
+          className="grid grid-cols-1 lg:grid-cols-3 gap-0"
           style={{ border: '1px solid var(--border)' }}
         >
           {PRINCIPALS.map((principal, i) => (
@@ -48,11 +56,11 @@ export function Principals() {
               <div
                 className="card-base flex flex-col gap-7 p-10 lg:p-12 h-full"
                 style={{
-                  background: i === 0 ? 'var(--navy-mid)' : 'var(--navy-light)',
-                  borderRight: i === 0 ? '1px solid var(--border)' : 'none',
+                  background: 'var(--white)',
+                  borderRight: i < PRINCIPALS.length - 1 ? '1px solid var(--border)' : 'none',
                 }}
               >
-                {/* Portrait photo */}
+                {/* Portrait photo / initials fallback */}
                 {principal.image && (
                   <div
                     className="relative w-20 h-20 rounded-full overflow-hidden flex-shrink-0"
@@ -67,14 +75,26 @@ export function Principals() {
                     />
                   </div>
                 )}
+                {!principal.image && (
+                  <div
+                    className="w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0 font-display italic text-[1.3rem]"
+                    style={{
+                      background: '#0F2B1A',
+                      color: 'var(--gold-lt)',
+                      border: '1px solid var(--border-bright)',
+                    }}
+                  >
+                    {getInitials(principal.name)}
+                  </div>
+                )}
 
                 {/* Role label */}
                 <p className="label-text text-[0.58rem] tracking-[0.2em]">{principal.role}</p>
 
                 {/* Name */}
                 <h3
-                  className="font-display text-ivory font-medium leading-tight"
-                  style={{ fontSize: 'clamp(1.6rem, 3vw, 36px)', lineHeight: 1.3 }}
+                  className="font-display font-medium leading-tight"
+                  style={{ fontSize: 'clamp(1.6rem, 3vw, 36px)', lineHeight: 1.3, color: 'var(--navy)' }}
                 >
                   {principal.name}
                 </h3>
@@ -89,10 +109,10 @@ export function Principals() {
 
                 {/* Bio paragraphs */}
                 <div className="flex flex-col gap-5">
-                  <p className="text-body">
+                  <p className="text-body" style={{ color: '#6A645C' }}>
                     {principal.bio1}
                   </p>
-                  <p className="text-body">
+                  <p className="text-body" style={{ color: '#6A645C' }}>
                     {principal.bio2}
                   </p>
                 </div>
@@ -108,9 +128,9 @@ export function Principals() {
                         className="flex-shrink-0 mt-[5px] w-1.5 h-1.5 rounded-full"
                         style={{ background: 'var(--gold)', opacity: 0.7 }}
                       />
-                      <span className="text-body">
+                      <span className="text-body" style={{ color: '#6A645C' }}>
                         {cred.bold && (
-                          <strong className="text-ivory font-medium">{cred.bold}</strong>
+                          <strong style={{ color: 'var(--navy)' }} className="font-medium">{cred.bold}</strong>
                         )}
                         {cred.text}
                       </span>
@@ -123,7 +143,8 @@ export function Principals() {
                   {principal.geographyTags.map((tag) => (
                     <span
                       key={tag}
-                      className="inline-flex items-center gap-2 font-accent text-[0.58rem] tracking-[0.16em] uppercase text-ivory-dim"
+                      className="inline-flex items-center gap-2 font-accent text-[0.58rem] tracking-[0.16em] uppercase"
+                      style={{ color: '#6A645C' }}
                     >
                       <span
                         className="inline-block w-1 h-1 rounded-full flex-shrink-0"

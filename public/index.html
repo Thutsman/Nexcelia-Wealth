@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vacherot — Capital Strategy · Southern Africa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Didact+Gothic&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --black:#060606;--ink:#0E0E0E;--smoke:#171717;--iron:#222;--ash:#3A3A3A;
+  --mist:#686868;--silver:#9A9A9A;--fog:#C8C8C8;--ivory:#F2EDE4;
+  --cream:#FAF8F4;--white:#FFFFFF;--forest:#081910;--moss:#0F2B1A;
+  --fern:#1A4028;--sage:#2D6045;--gold:#B8962E;--gilt:#D4AF50;
+  --honey:#E8C96A;--dull:#7A6218;
+  --serif:'Playfair Display',Georgia,serif;
+  --sans:'Didact Gothic','Helvetica Neue',sans-serif;
+  --body:'EB Garamond',Georgia,serif;
+  --expo:cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--ivory);font-family:var(--body);font-size:18px;line-height:1.7;overflow-x:hidden;cursor:none}
+::selection{background:var(--gold);color:var(--black)}
+::-webkit-scrollbar{width:1px}::-webkit-scrollbar-track{background:var(--ink)}::-webkit-scrollbar-thumb{background:var(--dull)}
+a{text-decoration:none;color:inherit}
+
+/* CURSOR */
+#cd,#cr{position:fixed;top:0;left:0;z-index:10000;pointer-events:none;transform:translate(-50%,-50%)}
+#cd{width:6px;height:6px;background:var(--gold);border-radius:50%;transition:width .25s var(--expo),height .25s var(--expo),background .25s}
+#cr{width:36px;height:36px;border:1px solid rgba(184,150,46,.35);border-radius:50%;z-index:9999;transition:width .4s var(--expo),height .4s var(--expo),border-color .3s}
+body.hov #cd{width:14px;height:14px;background:var(--gilt)}
+body.hov #cr{width:58px;height:58px;border-color:rgba(212,175,80,.7)}
+
+/* LOADER */
+#loader{position:fixed;inset:0;background:var(--black);z-index:9000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;transition:opacity .9s var(--expo),visibility .9s}
+#loader.out{opacity:0;visibility:hidden}
+.ld-mark{animation:lp 1.6s ease-in-out infinite}
+@keyframes lp{0%,100%{opacity:.25;transform:scale(.93)}50%{opacity:1;transform:scale(1)}}
+.ld-bar{width:100px;height:1px;background:var(--iron);overflow:hidden}
+.ld-fill{height:100%;background:var(--gold);width:0;animation:lf 1.8s var(--expo) forwards .3s}
+@keyframes lf{to{width:100%}}
+.ld-label{font-family:var(--sans);font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:var(--ash)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:36px 60px;display:flex;align-items:center;justify-content:space-between;transition:padding .5s var(--expo),background .5s,border-color .5s;border-bottom:1px solid transparent}
+nav.on{padding:20px 60px;background:rgba(6,6,6,.94);backdrop-filter:blur(18px) saturate(.8);border-color:rgba(255,255,255,.04)}
+.nb{display:flex;align-items:center;gap:14px}
+.nw{font-family:var(--serif);font-size:1.1rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ivory)}
+.nl{display:flex;gap:40px;list-style:none}
+.nl a{font-family:var(--sans);font-size:.62rem;letter-spacing:.28em;text-transform:uppercase;color:var(--silver);position:relative;transition:color .3s}
+.nl a::before{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .35s var(--expo)}
+.nl a:hover{color:var(--ivory)}.nl a:hover::before{width:100%}
+.ne{font-family:var(--sans);font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,150,46,.3);padding:10px 26px;transition:background .3s,color .3s,border-color .3s}
+.ne:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--expo),transform .9s var(--expo)}
+.rv.in{opacity:1;transform:translateY(0)}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.4s}.rv.d6{transition-delay:.48s}
+.cr{display:block;overflow:hidden}
+.cr span{display:block;transform:translateY(110%);transition:transform 1.1s var(--expo)}
+.cr.in span{transform:translateY(0)}
+.cr.d1 span{transition-delay:.06s}.cr.d2 span{transition-delay:.13s}
+.cr.d3 span{transition-delay:.2s}.cr.d4 span{transition-delay:.27s}
+
+/* HERO */
+#hero{height:100svh;min-height:680px;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;position:relative;overflow:hidden}
+.hbg{position:absolute;inset:0;overflow:hidden}
+.hbg canvas{position:absolute;inset:0;width:100%;height:100%}
+.hvig{position:absolute;inset:0;background:radial-gradient(ellipse 90% 55% at 50% 100%,rgba(8,25,16,.95) 0%,transparent 70%),linear-gradient(to bottom,rgba(6,6,6,.6) 0%,transparent 25%,transparent 55%,rgba(6,6,6,.9) 100%)}
+.hi{position:relative;z-index:2;display:grid;grid-template-columns:1fr auto;align-items:flex-end;gap:40px}
+.hl{font-family:var(--sans);font-size:.58rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:12px}
+.hl::before{content:'';display:block;width:28px;height:1px;background:currentColor;opacity:.6}
+.h1{font-family:var(--serif);font-size:clamp(3.8rem,9vw,9.5rem);font-weight:400;line-height:.9;letter-spacing:-.01em;color:var(--cream)}
+.h1 .it{font-style:italic;color:var(--gilt)}
+.hr2{display:flex;flex-direction:column;align-items:flex-end;gap:40px;flex-shrink:0;max-width:300px}
+.hdesc{font-family:var(--body);font-size:.95rem;line-height:1.8;color:var(--silver);text-align:right}
+.hsc{display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--sans);font-size:.55rem;letter-spacing:.35em;text-transform:uppercase;color:var(--ash)}
+.hsl{width:1px;height:54px;background:linear-gradient(var(--dull),transparent);animation:sp 2.4s ease-in-out infinite}
+@keyframes sp{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:.9;transform:scaleY(.55) translateY(10px)}}
+
+/* TICKER */
+.ticker{overflow:hidden;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05);padding:15px 0;background:var(--ink)}
+.tt{display:flex;width:max-content;animation:tr 32s linear infinite}
+@keyframes tr{to{transform:translateX(-50%)}}
+.ti{display:inline-flex;align-items:center;gap:18px;padding:0 32px;font-family:var(--sans);font-size:.58rem;letter-spacing:.38em;text-transform:uppercase;color:var(--ash);white-space:nowrap}
+.ts{width:3px;height:3px;border:1px solid var(--dull);transform:rotate(45deg);flex-shrink:0}
+
+/* SECTION LABEL + HEADING */
+.sl{font-family:var(--sans);font-size:.57rem;letter-spacing:.42em;text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:24px}
+.sl::before{content:'';width:18px;height:1px;background:currentColor;flex-shrink:0}
+.sh{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.005em}
+.sh em{font-style:italic;color:var(--gilt)}
+
+/* MANIFESTO */
+#manifesto{background:var(--cream);color:var(--ink)}
+.mw{max-width:1340px;margin:0 auto;padding:128px 60px}
+.mhed{font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,6rem);font-weight:400;line-height:1.06;color:var(--ink);letter-spacing:-.012em}
+.mhed em{font-style:italic;color:var(--gold)}
+.mkick{display:flex;align-items:flex-start;gap:64px;padding-top:64px;margin-top:64px;border-top:1px solid rgba(0,0,0,.09)}
+.mbody{font-family:var(--body);font-size:1.02rem;line-height:1.85;color:#4A4540;max-width:560px}
+.mbody p{margin-bottom:16px}.mbody strong{color:var(--ink);font-weight:500}
+.mpull{flex-shrink:0;max-width:270px;padding-left:28px;border-left:2px solid var(--gold)}
+.mpull p{font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.48;color:var(--ink)}
+.mpull cite{display:block;margin-top:14px;font-family:var(--sans);font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-style:normal}
+.mstats{display:flex;border-top:1px solid rgba(0,0,0,.08);margin-top:64px}
+.mst{flex:1;padding:36px 40px;border-right:1px solid rgba(0,0,0,.07)}
+.mst:last-child{border-right:none}
+.msn{font-family:var(--serif);font-size:2.8rem;font-weight:400;color:var(--gold);line-height:1;letter-spacing:-.02em}
+.msl{font-family:var(--sans);font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mist);margin-top:8px}
+
+/* FOCUS */
+#focus{background:var(--ink)}
+.fh{max-width:1340px;margin:0 auto;padding:100px 60px 56px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+.fh .sl{color:var(--mist)}.fh .sh{font-size:clamp(2rem,4vw,3.5rem);color:var(--ivory)}
+.fhd{max-width:340px;font-family:var(--body);font-size:.95rem;line-height:1.75;color:var(--silver);flex-shrink:0}
+.ftable{border-top:1px solid rgba(255,255,255,.05)}
+.frow{display:grid;grid-template-columns:72px 1fr 1.1fr 44px;align-items:center;gap:0 28px;padding:28px 60px;border-bottom:1px solid rgba(255,255,255,.04);cursor:default;position:relative;transition:background .35s var(--expo)}
+.frow::before{content:'';position:absolute;left:0;top:0;bottom:0;width:0;background:var(--forest);transition:width .55s var(--expo);z-index:0}
+.frow:hover::before{width:100%}
+.frow>*{position:relative;z-index:1}
+.fi{font-family:var(--serif);font-style:italic;font-size:.82rem;color:var(--ash);transition:color .3s}
+.frow:hover .fi{color:var(--gold)}
+.ft{font-family:var(--serif);font-size:clamp(1.25rem,2.2vw,1.75rem);font-weight:400;color:var(--ivory);transition:color .3s}
+.frow:hover .ft{color:var(--gilt)}
+.fd{font-family:var(--body);font-size:.87rem;line-height:1.68;color:var(--mist);transition:color .35s}
+.frow:hover .fd{color:var(--fog)}
+.fa{justify-self:end;width:30px;height:30px;border:1px solid rgba(255,255,255,.1);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:border-color .3s,transform .4s var(--expo)}
+.frow:hover .fa{border-color:var(--gold);transform:translateX(6px)}
+.fa svg{width:11px;height:11px;stroke:var(--silver);transition:stroke .3s}
+.frow:hover .fa svg{stroke:var(--gold)}
+
+/* PHILOSOPHY */
+#philosophy{background:var(--forest)}
+.pw{max-width:1340px;margin:0 auto;padding:120px 60px;display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center}
+.pl .sl{color:rgba(212,175,80,.55)}.pl .sh{font-size:clamp(2.2rem,4.5vw,4.2rem);color:var(--ivory);margin-bottom:36px}
+.pb{font-family:var(--body);font-size:.98rem;line-height:1.88;color:rgba(242,237,228,.58)}
+.pb p{margin-bottom:14px}.pb strong{color:var(--ivory);font-weight:500}
+.pcards{display:flex;flex-direction:column;gap:2px}
+.pc{padding:28px 32px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.04);transition:background .3s,border-color .3s}
+.pc:hover{background:rgba(184,150,46,.07);border-color:rgba(184,150,46,.2)}
+.pcn{font-family:var(--sans);font-size:.54rem;letter-spacing:.28em;text-transform:uppercase;color:var(--dull);margin-bottom:10px}
+.pct{font-family:var(--serif);font-size:1.1rem;font-weight:400;color:var(--ivory);margin-bottom:6px}
+.pcd{font-family:var(--body);font-size:.85rem;line-height:1.68;color:rgba(242,237,228,.42)}
+
+/* TEAM */
+#team{background:var(--ivory);color:var(--ink)}
+.tw{max-width:1340px;margin:0 auto;padding:120px 60px}
+.thdr{display:flex;align-items:flex-end;justify-content:space-between;gap:60px;margin-bottom:72px}
+.thdr .sl{color:var(--mist)}.thdr .sh{font-size:clamp(2rem,4vw,3.4rem);color:var(--ink)}
+.tsub{max-width:320px;flex-shrink:0;font-family:var(--body);font-size:.95rem;line-height:1.75;color:#7A736A}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.tc{background:var(--cream);padding:52px 44px 48px;position:relative;overflow:hidden;transition:background .35s}
+.tc:hover{background:var(--white)}
+.tc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .6s var(--expo);transform-origin:left}
+.tc:hover::after{transform:scaleX(1)}
+.tci{width:52px;height:52px;border-radius:50%;background:var(--forest);display:flex;align-items:center;justify-content:center;margin-bottom:28px;font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--gilt);transition:background .3s}
+.tc:hover .tci{background:var(--ink)}
+.tcn{font-family:var(--serif);font-size:1.5rem;font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:5px}
+.tcr{font-family:var(--sans);font-size:.57rem;letter-spacing:.27em;text-transform:uppercase;color:var(--gold);margin-bottom:24px}
+.tcc{font-family:var(--body);font-style:italic;font-size:.87rem;line-height:1.65;color:#8A8078;padding-bottom:18px;border-bottom:1px solid rgba(0,0,0,.07);margin-bottom:18px}
+.tcb{font-family:var(--body);font-size:.88rem;line-height:1.8;color:#6A645C;transition:color .3s}
+.tc:hover .tcb{color:#4A4540}
+.tct{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.tctag{font-family:var(--sans);font-size:.53rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dull);border:1px solid rgba(184,150,46,.22);padding:5px 12px;transition:border-color .3s,color .3s}
+.tc:hover .tctag{border-color:rgba(184,150,46,.6);color:var(--gold)}
+
+/* PRESENCE */
+#presence{background:var(--smoke);border-top:1px solid rgba(255,255,255,.04);border-bottom:1px solid rgba(255,255,255,.04)}
+.prw{max-width:1340px;margin:0 auto;padding:60px;display:flex;align-items:center;gap:60px}
+.prl{font-family:var(--sans);font-size:.57rem;letter-spacing:.37em;text-transform:uppercase;color:var(--ash);flex-shrink:0}
+.prc{flex:1;display:flex;justify-content:center;gap:64px}
+.prcity{text-align:center}
+.prname{font-family:var(--serif);font-size:1.35rem;color:var(--ivory);margin-bottom:4px}
+.prcountry{font-family:var(--sans);font-size:.56rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ash)}
+.prdiv{width:1px;height:32px;background:rgba(255,255,255,.06);align-self:center}
+
+/* INSIGHTS TEASER */
+#insights-teaser{background:var(--cream);color:var(--ink)}
+.itw{max-width:1340px;margin:0 auto;padding:100px 60px}
+.it-hdr{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;margin-bottom:56px}
+.it-link{font-family:var(--sans);font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(184,150,46,.3);padding:12px 28px;flex-shrink:0;display:inline-block;transition:background .3s,color .3s,border-color .3s}
+.it-link:hover{background:var(--gold);color:var(--black);border-color:var(--gold)}
+.it-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.it-card{background:var(--ivory);padding:40px 36px;display:block;position:relative;overflow:hidden;transition:background .3s}
+.it-card:hover{background:var(--white)}
+.it-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .6s var(--expo);transform-origin:left}
+.it-card:hover::after{transform:scaleX(1)}
+.it-cat{font-family:var(--sans);font-size:.52rem;letter-spacing:.26em;text-transform:uppercase;margin-bottom:14px}
+.it-title{font-family:var(--serif);font-size:1.25rem;font-weight:400;line-height:1.18;color:var(--ink);margin-bottom:14px}
+.it-title em{font-style:italic;color:var(--gold)}
+.it-excerpt{font-family:var(--body);font-size:.87rem;line-height:1.72;color:#7A736A;margin-bottom:24px}
+.it-read{font-family:var(--sans);font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+
+/* CONTACT */
+#contact{background:var(--black)}
+.cw{max-width:1340px;margin:0 auto;padding:120px 60px;display:grid;grid-template-columns:1fr 1.1fr;gap:96px;align-items:start}
+.cl .sl{color:var(--mist)}.cl .sh{font-size:clamp(2rem,4vw,3.5rem);color:var(--ivory);margin-bottom:28px}
+.cl p{font-family:var(--body);font-size:.97rem;line-height:1.8;color:var(--silver)}
+.cinfo{margin-top:52px;display:flex;flex-direction:column;gap:28px}
+.cib-l{font-family:var(--sans);font-size:.57rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+.cib-v{font-family:var(--serif);font-size:1.1rem;color:var(--ivory)}
+.cib-sm{font-family:var(--body);font-size:.9rem;line-height:1.7;color:var(--silver)}
+.cf{display:flex;flex-direction:column}
+.cfr{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07);position:relative;transition:border-color .3s}
+.cfr:focus-within{border-color:rgba(184,150,46,.45)}
+.cfr::after{content:'';position:absolute;bottom:-1px;left:0;width:0;height:1px;background:var(--gold);transition:width .5s var(--expo)}
+.cfr:focus-within::after{width:100%}
+.cfl{display:block;font-family:var(--sans);font-size:.56rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ash);padding-top:18px;margin-bottom:5px;transition:color .3s}
+.cfr:focus-within .cfl{color:var(--gold)}
+.cfr input,.cfr select,.cfr textarea{width:100%;background:none;border:none;outline:none;font-family:var(--body);font-size:1rem;color:var(--ivory);caret-color:var(--gold);padding:3px 0 16px}
+.cfr select{cursor:pointer}.cfr select option{background:var(--smoke);color:var(--ivory)}
+.cfr textarea{resize:none}
+.csub{display:inline-flex;align-items:center;gap:12px;margin-top:40px;font-family:var(--sans);font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--black);background:var(--gold);border:none;padding:16px 36px;cursor:none;align-self:flex-start;transition:background .3s,gap .35s var(--expo)}
+.csub:hover{background:var(--gilt);gap:20px}
+.csub svg{width:13px;height:13px;stroke:currentColor;flex-shrink:0}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid rgba(255,255,255,.04);padding:44px 60px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+.fbrand{font-family:var(--serif);font-size:1.1rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ivory)}
+.fmid{font-family:var(--sans);font-size:.55rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ash);text-align:center}
+.fr{font-family:var(--sans);font-size:.54rem;letter-spacing:.15em;color:var(--ash);text-align:right;line-height:1.9}
+.fr a{color:var(--mist);transition:color .2s}.fr a:hover{color:var(--gold)}
+
+/* RESPONSIVE */
+@media(max-width:1080px){
+  .mw,.fh,.pw,.tw,.prw,.cw,.itw{padding-left:32px;padding-right:32px}
+  .mkick{flex-direction:column;gap:40px}
+  .pw{grid-template-columns:1fr;gap:56px}
+  .tgrid{grid-template-columns:1fr 1fr}
+  .cw{grid-template-columns:1fr;gap:56px}
+  .fh{flex-direction:column;align-items:flex-start}
+  .it-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  nav{padding:22px 28px}nav.on{padding:16px 28px}
+  .nl{display:none}.ne{display:none}
+  #hero{padding:0 28px 56px}
+  .hi{grid-template-columns:1fr}
+  .hr2{align-items:flex-start;max-width:none}.hdesc{text-align:left}
+  .mw,.fh,.pw,.tw,.prw,.cw,.itw{padding-left:24px;padding-right:24px}
+  .tgrid{grid-template-columns:1fr}
+  .mstats{flex-direction:column}
+  .mst{border-right:none;border-bottom:1px solid rgba(0,0,0,.08)}
+  .frow{grid-template-columns:44px 1fr;gap:14px;padding:22px 24px}
+  .fd,.fa{display:none}
+  footer{flex-direction:column;text-align:center}.fr{text-align:center}
+  .prc{flex-wrap:wrap;gap:28px}.prw{flex-direction:column;gap:24px}
+  .it-grid{grid-template-columns:1fr}
+  .it-hdr{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div id="cd"></div>
+<div id="cr"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <svg class="ld-mark" width="52" height="50" viewBox="0 0 52 50" fill="none">
+    <line x1="4" y1="6" x2="26" y2="46" stroke="#B8962E" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="48" y1="6" x2="26" y2="46" stroke="#B8962E" stroke-width="1.3" stroke-linecap="round"/>
+    <line x1="9" y1="6" x2="43" y2="6" stroke="rgba(184,150,46,.22)" stroke-width="1" stroke-linecap="round"/>
+    <circle cx="26" cy="46" r="2.5" fill="rgba(184,150,46,.4)"/>
+  </svg>
+  <div class="ld-bar"><div class="ld-fill"></div></div>
+  <span class="ld-label">Vacherot</span>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nb">
+    <svg width="24" height="24" viewBox="0 0 52 50" fill="none">
+      <line x1="4" y1="6" x2="26" y2="46" stroke="#B8962E" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="48" y1="6" x2="26" y2="46" stroke="#B8962E" stroke-width="1.5" stroke-linecap="round"/>
+      <line x1="9" y1="6" x2="43" y2="6" stroke="rgba(184,150,46,.25)" stroke-width="1.2" stroke-linecap="round"/>
+    </svg>
+    <a href="index.html" class="nw">Vacherot</a>
+  </div>
+  <ul class="nl">
+    <li><a href="#manifesto">Philosophy</a></li>
+    <li><a href="#focus">Sectors</a></li>
+    <li><a href="#team">Leadership</a></li>
+    <li><a href="insights.html">Insights</a></li>
+    <li><a href="#contact">Enquire</a></li>
+  </ul>
+  <a href="#contact" class="ne">Begin Conversation</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hbg">
+    <canvas id="hc"></canvas>
+    <div class="hvig"></div>
+  </div>
+  <div class="hi">
+    <div>
+      <p class="hl rv">Capital Deployed · Southern Africa</p>
+      <h2 class="h1">
+        <span class="cr d1"><span>Where</span></span>
+        <span class="cr d2"><span><span class="it">Capital</span></span></span>
+        <span class="cr d3"><span>Meets</span></span>
+        <span class="cr d4"><span>Continent</span></span>
+      </h2>
+    </div>
+    <div class="hr2">
+      <p class="hdesc rv d2">A boutique wealth management office anchored in Southern Africa. Deploying capital into the sectors defining the region's next chapter.</p>
+      <div class="hsc rv d4">
+        <div class="hsl"></div>
+        <span>Scroll</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="tt">
+    <span class="ti">Artificial Intelligence<span class="ts"></span></span>
+    <span class="ti">Financial Technology<span class="ts"></span></span>
+    <span class="ti">Mining &amp; Resources<span class="ts"></span></span>
+    <span class="ti">Real Estate<span class="ts"></span></span>
+    <span class="ti">Digital Infrastructure<span class="ts"></span></span>
+    <span class="ti">Energy Transition<span class="ts"></span></span>
+    <span class="ti">Tourism &amp; Conservation<span class="ts"></span></span>
+    <span class="ti">Harare · Shanghai · The Hague<span class="ts"></span></span>
+    <span class="ti">Artificial Intelligence<span class="ts"></span></span>
+    <span class="ti">Financial Technology<span class="ts"></span></span>
+    <span class="ti">Mining &amp; Resources<span class="ts"></span></span>
+    <span class="ti">Real Estate<span class="ts"></span></span>
+    <span class="ti">Digital Infrastructure<span class="ts"></span></span>
+    <span class="ti">Energy Transition<span class="ts"></span></span>
+    <span class="ti">Tourism &amp; Conservation<span class="ts"></span></span>
+    <span class="ti">Harare · Shanghai · The Hague<span class="ts"></span></span>
+  </div>
+</div>
+
+<!-- MANIFESTO -->
+<section id="manifesto">
+  <div class="mw">
+    <div>
+      <p class="sl rv" style="color:var(--mist)">Our Mandate</p>
+      <h2 class="mhed">
+        <span class="cr d1"><span>Southern Africa stands</span></span>
+        <span class="cr d2"><span>at the apex of an</span></span>
+        <span class="cr d3"><span><em>epochal transformation.</em></span></span>
+      </h2>
+    </div>
+    <div class="mkick">
+      <div class="mbody rv d2">
+        <p>Vacherot is a boutique wealth management office deploying capital across <strong>Southern Africa's most transformative sectors</strong>. We are not passive allocators — we are architects of growth, guided by deep regional intelligence and global capital markets expertise.</p>
+        <p>Our mandate is singular: identify and accelerate the ventures that will define the next chapter of African economic leadership. From Harare to Shanghai, The Hague to Cape Town, we operate at the intersection of emerging opportunity and institutional rigor.</p>
+        <p>We bring to each engagement a framework refined across the world's most sophisticated financial centres — the Bank of England, Warwick Business School, the Dutch financial system — and ground it in an intimate understanding of the Southern African landscape.</p>
+      </div>
+      <div class="mpull rv d3">
+        <p>"Capital deployed with conviction, guided by knowledge, anchored in place."</p>
+        <cite>— Dr. T. Muganyi, Founding Principal</cite>
+      </div>
+    </div>
+    <div class="mstats">
+      <div class="mst rv d1"><span class="msn" data-target="7">0</span><p class="msl">Focus Sectors</p></div>
+      <div class="mst rv d2"><span class="msn" data-target="3">0</span><p class="msl">Global Offices</p></div>
+      <div class="mst rv d3"><span class="msn">10+</span><p class="msl">Years Experience</p></div>
+      <div class="mst rv d4"><span class="msn">SADC</span><p class="msl">Regional Coverage</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOCUS -->
+<section id="focus">
+  <div class="fh">
+    <div>
+      <p class="sl rv">Investment Mandate</p>
+      <h2 class="sh rv d1">Seven Sectors.<br><em>One Continent.</em></h2>
+    </div>
+    <p class="fhd rv d2">Each of our seven focus areas represents a structural shift underway in Southern Africa. We invest where global capital frameworks meet local growth imperative.</p>
+  </div>
+  <div class="ftable">
+    <div class="frow rv"><span class="fi">01</span><div><p class="ft">Artificial Intelligence</p></div><div class="fd">AI applications built for African context — agricultural optimisation, NLP for indigenous languages, infrastructure automation.</div><div class="fa"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div></div>
+    <div class="frow rv d1"><span class="fi">02</span><div><p class="ft">Financial Technology</p></div><div class="fd">Mobile money ecosystems, cross-border remittance platforms, regulatory technology, and open banking infrastructure across SADC.</div><div class="fa"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div></div>
+    <div class="frow rv d2"><span class="fi">03</span><div><p class="ft">Mining &amp; Resources</p></div><div class="fd">Critical mineral extraction — lithium, platinum, cobalt, and rare earths central to the global energy transition — with ESG embedded from inception.</div><div class="fa"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div></div>
+    <div class="frow rv d3"><span class="fi">04</span><div><p class="ft">Real Estate</p></div><div class="fd">High-value commercial, residential, and mixed-use assets across Zimbabwe, Zambia, South Africa, and Mozambique's emerging growth corridors.</div><div class="fa"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div></div>
+    <div class="frow rv d4"><span class="fi">05</span><div><p class="ft">Digital Infrastructure</p></div><div class="fd">Data centres, fibre networks, subsea cable landing stations, and cloud infrastructure anchoring Africa's digital economy to global standards.</div><div class="fa"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div></div>
+    <div class="frow rv d5"><span class="fi">06</span><div><p class="ft">Energy Transition</p></div><div class="fd">Solar, wind, hydro, and green hydrogen projects serving energy security imperatives and Southern Africa's decarbonisation potential.</div><div class="fa"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div></div>
+    <div class="frow rv d6"><span class="fi">07</span><div><p class="ft">Tourism &amp; Conservation</p></div><div class="fd">High-value eco-tourism lodges, conservation finance, and community-anchored wildlife economies that make preservation economically self-sustaining.</div><div class="fa"><svg viewBox="0 0 12 12" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h10M6 1l5 5-5 5"/></svg></div></div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section id="philosophy">
+  <div class="pw">
+    <div class="pl">
+      <p class="sl rv">Our Approach</p>
+      <h2 class="sh rv d1">Capital With<br><em>Conviction</em><br>&amp; Context</h2>
+      <div class="pb rv d2">
+        <p>Vacherot was founded on a fundamental observation: <strong>the most profound investment opportunities in Southern Africa remain systematically undercapitalised</strong> — not for lack of merit, but for lack of conviction among those without the contextual intelligence to see them clearly.</p>
+        <p>We bridge that gap. Our principals bring together institutional-grade financial architecture with the irreplaceable advantage of deep-rooted, on-the-ground presence across the region.</p>
+        <p><strong>We do not manage capital from a distance. We are here.</strong> We know these markets, these regulators, these communities. That is our durable competitive edge.</p>
+      </div>
+    </div>
+    <div class="pcards">
+      <div class="pc rv d1"><p class="pcn">Principle 01</p><p class="pct">Presence Over Distance</p><p class="pcd">On-the-ground intelligence across the SADC region provides insight no remote investor can replicate. Our principals live and operate in the markets they invest in.</p></div>
+      <div class="pc rv d2"><p class="pcn">Principle 02</p><p class="pct">Institutional Architecture</p><p class="pcd">Frameworks shaped by the Bank of England, Warwick Business School, and a decade in Shanghai and The Hague — applied to frontier opportunity.</p></div>
+      <div class="pc rv d3"><p class="pcn">Principle 03</p><p class="pct">Long Duration Conviction</p><p class="pcd">We take positions with structural patience. The transformation of Southern Africa is a decade-scale thesis, and we size accordingly.</p></div>
+      <div class="pc rv d4"><p class="pcn">Principle 04</p><p class="pct">ESG as Architecture</p><p class="pcd">Environmental and governance considerations are not overlays — they are the structure through which we evaluate risk and identify durable value creation.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="tw">
+    <div class="thdr">
+      <div>
+        <p class="sl rv">Leadership</p>
+        <h2 class="sh rv d1">The Principals<br>of <em>Vacherot</em></h2>
+      </div>
+      <p class="tsub rv d2">Three principals. Three continents of experience. One singular focus on Southern Africa's transformation.</p>
+    </div>
+    <div class="tgrid">
+      <div class="tc rv d1">
+        <div class="tci">TM</div>
+        <h3 class="tcn">Dr. Tadiwanashe<br>Muganyi</h3>
+        <p class="tcr">Managing Principal · Founder</p>
+        <p class="tcc">MSc Global Central Banking &amp; Financial Regulation — Warwick Business School in collaboration with the Bank of England · PhD FinTech</p>
+        <p class="tcb">Over a decade of experience spanning Shanghai, The Hague, and Southern Africa. Dr. Muganyi architects Vacherot's investment strategy at the intersection of central banking theory and emerging market practice — a framework refined across the world's most demanding financial environments.</p>
+        <div class="tct"><span class="tctag">Harare</span><span class="tctag">Shanghai</span><span class="tctag">The Hague</span></div>
+      </div>
+      <div class="tc rv d2">
+        <div class="tci">JK</div>
+        <h3 class="tcn">Jamila<br>van Kooij</h3>
+        <p class="tcr">Technology Principal</p>
+        <p class="tcc">Technology Strategy · Digital Systems Architecture · China &amp; Netherlands Markets</p>
+        <p class="tcb">Jamila van Kooij's expertise is rooted in the technology corridors of Shanghai and Amsterdam. Her mandate spans AI, fintech, and digital infrastructure — applying rigorous technical due diligence to opportunities others lack the expertise to evaluate. Dutch institutional precision meets Chinese innovation dynamism.</p>
+        <div class="tct"><span class="tctag">Amsterdam</span><span class="tctag">Shanghai</span><span class="tctag">Harare</span></div>
+      </div>
+      <div class="tc rv d3">
+        <div class="tci">TD</div>
+        <h3 class="tcn">Thulani<br>Dube</h3>
+        <p class="tcr">Infrastructure &amp; Real Estate Principal</p>
+        <p class="tcc">Engineering · Real Estate Development · Infrastructure Technology · Software Systems</p>
+        <p class="tcb">Thulani Dube's engineering foundation gives Vacherot a discipline pure finance rarely commands — the ability to look beyond the pro forma to the physical reality of what is being built. Deeply experienced in real estate development, infrastructure delivery, and software systems across Southern Africa.</p>
+        <div class="tct"><span class="tctag">Southern Africa</span><span class="tctag">SADC</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESENCE -->
+<div id="presence">
+  <div class="prw">
+    <span class="prl rv">Global Offices</span>
+    <div class="prc rv d1">
+      <div class="prcity"><p class="prname">Harare</p><p class="prcountry">Zimbabwe · HQ</p></div>
+      <div class="prdiv"></div>
+      <div class="prcity"><p class="prname">Shanghai</p><p class="prcountry">China</p></div>
+      <div class="prdiv"></div>
+      <div class="prcity"><p class="prname">The Hague</p><p class="prcountry">Netherlands</p></div>
+    </div>
+    <span class="prl rv d2" style="text-align:right">SADC · Asia · Europe</span>
+  </div>
+</div>
+
+<!-- INSIGHTS TEASER -->
+<section id="insights-teaser">
+  <div class="itw">
+    <div class="it-hdr">
+      <div>
+        <p class="sl rv" style="color:var(--mist)">Capital Intelligence</p>
+        <h2 class="sh rv d1" style="font-size:clamp(2rem,4vw,3.4rem);color:var(--ink)">Latest from<br><em>Vacherot Insights</em></h2>
+      </div>
+      <a href="insights.html" class="it-link rv d2">View All Insights &rarr;</a>
+    </div>
+    <div class="it-grid">
+      <a href="insights.html" class="it-card rv d1">
+        <p class="it-cat" style="color:#4A9EBF">AI &amp; Financial Technology</p>
+        <h3 class="it-title">Africa's <em>$16.5 Billion</em> AI Horizon</h3>
+        <p class="it-excerpt">Africa's AI market is projected to grow 27.4% annually through 2030. A once-in-a-generation structural opportunity is forming in the SADC corridor.</p>
+        <span class="it-read">Read Analysis &rarr;</span>
+      </a>
+      <a href="insights.html" class="it-card rv d2">
+        <p class="it-cat" style="color:#C4862E">Mining &amp; Resources</p>
+        <h3 class="it-title">Zimbabwe's Mining Boom: <em>Africa's Most Consequential Mineral Story</em></h3>
+        <p class="it-excerpt">Lithium exports up 30% in H1 2025. Over $1.2B invested. The world's second-largest platinum deposits. Understanding the drivers and investor calculus.</p>
+        <span class="it-read">Read Analysis &rarr;</span>
+      </a>
+      <a href="insights.html" class="it-card rv d3">
+        <p class="it-cat" style="color:#B05E5E">Tourism &amp; Conservation</p>
+        <h3 class="it-title">Forbes Names Zimbabwe <em>#1 Travel Destination 2025</em></h3>
+        <p class="it-excerpt">Ranked above Sri Lanka and South Korea. Flight searches surge 80%. What the recognition means for conservation-anchored investment across SADC.</p>
+        <span class="it-read">Read Analysis &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="cw">
+    <div class="cl">
+      <p class="sl rv">Engage Vacherot</p>
+      <h2 class="sh rv d1">Begin the<br><em>Conversation</em></h2>
+      <p class="rv d2">Vacherot engages with a limited number of capital partners, co-investors, and strategic collaborators each year. If you are seeking institutional-grade exposure to Southern Africa's most transformative growth sectors, we welcome your enquiry.</p>
+      <div class="cinfo rv d3">
+        <div><p class="cib-l">Principal Contact</p><p class="cib-v">enquiries&#64;vacherot.com</p></div>
+        <div><p class="cib-l">Registered Office</p><p class="cib-sm">Harare, Zimbabwe<br>Southern Africa</p></div>
+      </div>
+    </div>
+    <form class="cf rv d2" onsubmit="sub(event)">
+      <div class="cfr"><label class="cfl">Full Name</label><input type="text" placeholder="Your name" required></div>
+      <div class="cfr"><label class="cfl">Organisation</label><input type="text" placeholder="Institution or firm"></div>
+      <div class="cfr"><label class="cfl">Email Address</label><input type="email" placeholder="your@email.com" required></div>
+      <div class="cfr"><label class="cfl">Nature of Enquiry</label>
+        <select><option value="" disabled selected>Select a category</option><option>Investment Partnership</option><option>Co-investment Opportunity</option><option>Strategic Advisory</option><option>Capital Deployment Query</option><option>General Enquiry</option></select>
+      </div>
+      <div class="cfr"><label class="cfl">Message</label><textarea rows="4" placeholder="Briefly describe your enquiry&#8230;"></textarea></div>
+      <button type="submit" class="csub">Submit Enquiry<svg viewBox="0 0 14 14" fill="none" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h12M8 2l5 5-5 5"/></svg></button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="fbrand">Vacherot</span>
+  <span class="fmid">Capital Strategy · Southern Africa · Est. Harare</span>
+  <div class="fr"><p>&copy; 2025 Vacherot Wealth Management</p><p><a href="#">Privacy</a> &nbsp;&middot;&nbsp; <a href="#">Disclosures</a> &nbsp;&middot;&nbsp; <a href="#">Terms</a></p></div>
+</footer>
+
+<script>
+/* LOADER */
+window.addEventListener('load',()=>{
+  setTimeout(()=>{
+    document.getElementById('loader').classList.add('out');
+    document.querySelectorAll('#hero .cr,#hero .rv').forEach(e=>e.classList.add('in'));
+  },2000);
+});
+
+/* CURSOR */
+const cd=document.getElementById('cd'),cr=document.getElementById('cr');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY});
+(function loop(){
+  rx+=(mx-rx)*.13;ry+=(my-ry)*.13;
+  cd.style.cssText=`left:${mx}px;top:${my}px`;
+  cr.style.cssText=`left:${rx}px;top:${ry}px`;
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,.frow,.tc,.pc,input,select,textarea').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+
+/* NAV */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('on',scrollY>80),{passive:true});
+
+/* CANVAS */
+const canvas=document.getElementById('hc'),ctx=canvas.getContext('2d');
+let W,H,pts;
+function init(){
+  W=canvas.width=canvas.offsetWidth;H=canvas.height=canvas.offsetHeight;
+  pts=Array.from({length:65},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.28,vy:(Math.random()-.5)*.28,r:Math.random()*1.2+.4}));
+}
+function draw(){
+  ctx.clearRect(0,0,W,H);
+  pts.forEach(p=>{
+    p.x+=p.vx;p.y+=p.vy;
+    if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+    ctx.fillStyle='rgba(184,150,46,.65)';ctx.fill();
+  });
+  for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+    const d=Math.hypot(pts[i].x-pts[j].x,pts[i].y-pts[j].y);
+    if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);
+    ctx.strokeStyle=`rgba(26,64,40,${.5*(1-d/130)})`;ctx.lineWidth=.55;ctx.stroke();}
+  }
+  requestAnimationFrame(draw);
+}
+init();draw();window.addEventListener('resize',init);
+
+/* REVEAL */
+const obs=new IntersectionObserver(e=>{
+  e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv,.cr').forEach(el=>{if(!el.closest('#hero'))obs.observe(el);});
+
+/* COUNTERS */
+const cobs=new IntersectionObserver(e=>{
+  e.forEach(x=>{
+    if(!x.isIntersecting)return;
+    const el=x.target,t=parseInt(el.dataset.target);
+    if(!t)return;let c=0;
+    const s=setInterval(()=>{c=Math.min(c+1,t);el.textContent=c;if(c>=t)clearInterval(s);},55);
+    cobs.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el=>cobs.observe(el));
+
+/* FORM */
+function sub(e){
+  e.preventDefault();
+  const b=e.target.querySelector('.csub');
+  b.innerHTML='Enquiry Received &#10003;';b.style.background='var(--sage)';b.style.color='var(--ivory)';b.disabled=true;
+}
+</script>
+</body>
+</html>

@@ -29,9 +29,9 @@ export function GlobalPresence() {
             </RevealWrapper>
             <RevealWrapper delay={0.3}>
               <p className="text-body section-gap max-w-md">
-                Our multi-jurisdiction footprint gives us the ability to structure wealth
-                solutions that span multiple regulatory environments, tax treaties, and
-                financial markets — a critical advantage for globally-oriented African families.
+                Our office network in Harare, Shanghai, and The Hague connects local execution
+                with global capital context. It gives us a durable edge in cross-border structuring,
+                institutional access, and market timing.
               </p>
             </RevealWrapper>
             <RevealWrapper delay={0.4}>
@@ -43,16 +43,16 @@ export function GlobalPresence() {
                   <span className="text-2xl">🌿</span>
                   <div>
                     <p className="font-display text-[22px] leading-[1.4] text-ivory mb-3">
-                      Research & Conservation Foundation
+                      Regional Context Desk
                     </p>
                     <p className="text-body">
-                      Our affiliated research foundation supports conservation science, land tenure
-                      reform advocacy, and nature-based carbon market development across Southern Africa.
+                      We maintain a dedicated context desk across SADC to monitor regulatory shifts,
+                      infrastructure bottlenecks, and sector-specific catalysts in real time.
                     </p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {['Conservation', 'Research', 'Policy', 'Africa'].map((tag) => (
+                  {['SADC', 'Regulation', 'Infrastructure', 'Sector Signals'].map((tag) => (
                     <span
                       key={tag}
                       className="px-2 py-0.5 text-[0.55rem] font-accent tracking-widest uppercase text-ivory-dim"

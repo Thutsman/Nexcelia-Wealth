@@ -2,7 +2,6 @@ import { GlobeAnimation } from '@/components/ui/GlobeAnimation'
 import { RevealWrapper } from '@/components/ui/RevealWrapper'
 import { Button } from '@/components/ui/Button'
 import { SectionLabel } from '@/components/ui/SectionLabel'
-import { GoldDivider } from '@/components/ui/GoldDivider'
 import { HERO_STATS } from '@/data/homepage'
 
 export function Hero() {
@@ -10,7 +9,7 @@ export function Hero() {
     <section
       id="hero"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
-      style={{ background: 'linear-gradient(160deg, var(--midnight) 0%, var(--navy-mid) 100%)' }}
+      style={{ background: 'linear-gradient(180deg, var(--midnight) 0%, var(--navy) 60%, var(--midnight) 100%)' }}
     >
       {/* Background grid pattern */}
       <div
@@ -28,34 +27,33 @@ export function Hero() {
             <RevealWrapper delay={0.2}>
               <SectionLabel className="mb-6 inline-flex items-center gap-3">
                 <span className="gold-rule inline-block" />
-                Private Family Office · Est. 2006
+                Capital Deployed · Southern Africa
               </SectionLabel>
             </RevealWrapper>
 
             <RevealWrapper delay={0.35}>
               <h1 className="text-display text-ivory heading-gap">
-                Preserving &amp;{' '}
-                <em className="text-gold not-italic">Growing</em> Wealth{' '}
+                Where{' '}
+                <em className="text-gold not-italic">Capital</em>{' '}
                 <br className="hidden sm:block" />
-                Across Generations
+                Meets Continent
               </h1>
             </RevealWrapper>
 
             <RevealWrapper delay={0.5}>
               <p className="text-subhead section-gap max-w-lg">
-                Nexcelia Wealth is a private family office headquartered in Bulawayo, Zimbabwe —
-                combining deep African market insight with global capital markets expertise to
-                protect and compound multi-generational wealth.
+                A principal-led wealth office anchored in Southern Africa, deploying capital into
+                the sectors shaping the region&apos;s next chapter.
               </p>
             </RevealWrapper>
 
             <RevealWrapper delay={0.65}>
               <div className="flex flex-wrap gap-4">
                 <Button href="#philosophy" variant="primary">
-                  Our Purpose
+                  Our Mandate
                 </Button>
-                <Button href="#principals" variant="ghost">
-                  The Principals →
+                <Button href="#contact" variant="ghost">
+                  Begin Conversation →
                 </Button>
               </div>
             </RevealWrapper>

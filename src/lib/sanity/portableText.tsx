@@ -8,11 +8,11 @@ export const portableTextComponents: PortableTextComponents = {
     h2: ({ children }) => (
       <h2
         style={{
-          fontFamily: 'var(--font-cormorant)',
+          fontFamily: 'var(--font-playfair)',
           fontSize: '36px',
           color: 'var(--gold)',
-          fontWeight: 500,
-          lineHeight: 1.3,
+          fontWeight: 400,
+          lineHeight: 1.15,
           marginTop: '2.75rem',
           marginBottom: '1.25rem',
         }}
@@ -23,10 +23,10 @@ export const portableTextComponents: PortableTextComponents = {
     h3: ({ children }) => (
       <h3
         style={{
-          fontFamily: 'var(--font-cormorant)',
+          fontFamily: 'var(--font-playfair)',
           fontSize: '22px',
           color: 'var(--ivory)',
-          fontWeight: 500,
+          fontWeight: 400,
           lineHeight: 1.4,
           marginTop: '2.25rem',
           marginBottom: '1rem',
@@ -38,10 +38,10 @@ export const portableTextComponents: PortableTextComponents = {
     normal: ({ children }) => (
       <p
         style={{
-          fontFamily: 'var(--font-dm-sans)',
-          fontSize: '17px',
+          fontFamily: 'var(--font-eb-garamond)',
+          fontSize: '18px',
           color: 'var(--ivory-dim)',
-          lineHeight: 1.7,
+          lineHeight: 1.8,
           marginBottom: '1.4rem',
         }}
       >
@@ -54,7 +54,7 @@ export const portableTextComponents: PortableTextComponents = {
           borderLeft: '2px solid var(--gold)',
           paddingLeft: '1.5rem',
           margin: '2rem 0',
-          fontFamily: 'var(--font-cormorant)',
+          fontFamily: 'var(--font-playfair)',
           fontStyle: 'italic',
           fontSize: '22px',
           color: 'var(--ivory)',
@@ -106,7 +106,7 @@ export const portableTextComponents: PortableTextComponents = {
             <figcaption
               style={{
                 marginTop: '0.75rem',
-                fontFamily: 'var(--font-dm-sans)',
+                fontFamily: 'var(--font-eb-garamond)',
                 fontSize: '0.8rem',
                 color: 'var(--ivory-dim)',
                 textAlign: 'center',
@@ -154,10 +154,10 @@ export const portableTextComponents: PortableTextComponents = {
     bullet: ({ children }) => (
       <li
         style={{
-          fontFamily: 'var(--font-dm-sans)',
-          fontSize: '17px',
+          fontFamily: 'var(--font-eb-garamond)',
+          fontSize: '18px',
           color: 'var(--ivory-dim)',
-          lineHeight: 1.7,
+          lineHeight: 1.8,
           display: 'flex',
           gap: '0.75rem',
           alignItems: 'flex-start',

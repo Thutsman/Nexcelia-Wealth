@@ -4,19 +4,19 @@
 
 @layer base {
   :root {
-    --midnight:      #070B12;
-    --navy:          #0C1422;
-    --navy-mid:      #101B30;
-    --navy-light:    #182640;
-    --gold:          #B08A52;
-    --gold-lt:       #C8A572;
-    --gold-pale:     #EBD9B4;
-    --ivory:         #E6EAF0;
-    --ivory-dim:     #A8B3C2;
-    --text-muted:    #7A8597;
-    --white:         #F8F5F0;
-    --border:        rgba(184, 150, 90, 0.18);
-    --border-bright: rgba(184, 150, 90, 0.45);
+    --midnight:      #060606;
+    --navy:          #0e0e0e;
+    --navy-mid:      #171717;
+    --navy-light:    #222222;
+    --gold:          #b8962e;
+    --gold-lt:       #d4af50;
+    --gold-pale:     #e8c96a;
+    --ivory:         #f2ede4;
+    --ivory-dim:     #c8c8c8;
+    --text-muted:    #9a9a9a;
+    --white:         #faf8f4;
+    --border:        rgba(255, 255, 255, 0.08);
+    --border-bright: rgba(212, 175, 80, 0.5);
     --section-padding: clamp(4rem, 8vw, 8rem);
   }
 
@@ -35,8 +35,8 @@
   body {
     background-color: var(--midnight);
     color: var(--ivory);
-    font-family: var(--font-dm-sans), system-ui, sans-serif;
-    font-size: 17px;
+    font-family: var(--font-eb-garamond), Georgia, serif;
+    font-size: 18px;
     line-height: 1.7;
     cursor: none;
   }
@@ -46,33 +46,33 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-cormorant), Georgia, serif;
+    font-family: var(--font-playfair), Georgia, serif;
     color: var(--ivory);
     letter-spacing: -0.01em;
   }
 
   h1 {
-    font-size: clamp(2.4rem, 5vw, 52px);
-    line-height: 1.2;
-    font-weight: 600;
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 0.95;
+    font-weight: 400;
   }
 
   h2 {
-    font-size: clamp(2rem, 3.6vw, 36px);
-    line-height: 1.3;
-    font-weight: 500;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1.08;
+    font-weight: 400;
   }
 
   h3 {
-    font-size: clamp(1.2rem, 2.3vw, 22px);
+    font-size: clamp(1.25rem, 2.2vw, 1.75rem);
     line-height: 1.4;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   p {
-    font-family: var(--font-dm-sans), system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
+    font-family: var(--font-eb-garamond), Georgia, serif;
+    font-size: 18px;
+    line-height: 1.8;
     color: var(--ivory-dim);
   }
 
@@ -105,53 +105,53 @@
     display: block;
     width: 3rem;
     height: 1px;
-    background: linear-gradient(90deg, var(--gold), transparent);
+    background: linear-gradient(90deg, var(--gold), rgba(184, 150, 46, 0.15));
   }
 
   .gold-rule-full {
     display: block;
     width: 100%;
     height: 1px;
-    background: linear-gradient(90deg, var(--gold), transparent);
-    opacity: 0.3;
+    background: linear-gradient(90deg, var(--gold), rgba(184, 150, 46, 0.1));
+    opacity: 0.4;
   }
 
   .text-display {
-    font-size: clamp(2.4rem, 5vw, 52px);
-    font-family: var(--font-cormorant), Georgia, serif;
-    font-weight: 600;
-    line-height: 1.2;
+    font-size: clamp(3rem, 8.8vw, 9rem);
+    font-family: var(--font-playfair), Georgia, serif;
+    font-weight: 400;
+    line-height: 0.92;
     letter-spacing: -0.01em;
   }
 
   .text-heading {
-    font-size: clamp(2rem, 3.6vw, 36px);
-    font-family: var(--font-cormorant), Georgia, serif;
-    font-weight: 500;
-    line-height: 1.3;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-family: var(--font-playfair), Georgia, serif;
+    font-weight: 400;
+    line-height: 1.08;
   }
 
   .text-subhead {
-    font-size: 17px;
-    font-family: var(--font-dm-sans), sans-serif;
+    font-size: 0.95rem;
+    font-family: var(--font-eb-garamond), serif;
     font-weight: 400;
-    line-height: 1.7;
+    line-height: 1.8;
     color: var(--ivory-dim);
   }
 
   .label-text {
-    font-family: var(--font-dm-sans), system-ui, sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.12em;
+    font-family: var(--font-didact), system-ui, sans-serif;
+    font-size: 0.58rem;
+    font-weight: 400;
+    letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--gold);
   }
 
   .text-body {
-    font-family: var(--font-dm-sans), system-ui, sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
+    font-family: var(--font-eb-garamond), Georgia, serif;
+    font-size: 1rem;
+    line-height: 1.8;
     color: var(--ivory-dim);
   }
 
@@ -169,23 +169,23 @@
 
   .card-base {
     border: 1px solid var(--border);
-    border-radius: 2px;
+    border-radius: 0;
     transition: border-color 200ms ease, box-shadow 200ms ease, filter 200ms ease;
   }
 
   .card-base:hover {
     border-color: var(--border-bright);
-    box-shadow: 0 0 0 1px rgba(176, 138, 82, 0.2), 0 12px 28px rgba(8, 12, 20, 0.35);
-    filter: brightness(1.03);
+    box-shadow: 0 0 0 1px rgba(212, 175, 80, 0.14), 0 14px 32px rgba(0, 0, 0, 0.42);
+    filter: brightness(1.02);
   }
 
   /* Nav underline animation */
   .nav-link {
     position: relative;
-    font-family: var(--font-dm-sans), system-ui, sans-serif;
-    font-size: 0.78rem;
-    font-weight: 500;
-    letter-spacing: 0.08em;
+    font-family: var(--font-didact), system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 400;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
     color: var(--ivory-dim);
     transition: color 200ms ease;

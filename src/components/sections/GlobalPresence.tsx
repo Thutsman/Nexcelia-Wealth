@@ -29,7 +29,7 @@ export function GlobalPresence() {
             </RevealWrapper>
             <RevealWrapper delay={0.3}>
               <p className="text-body section-gap max-w-md">
-                Our office network in Harare, Shanghai, and The Hague connects local execution
+                Our office network in Bulawayo, Shanghai, and The Hague connects local execution
                 with global capital context. It gives us a durable edge in cross-border structuring,
                 institutional access, and market timing.
               </p>

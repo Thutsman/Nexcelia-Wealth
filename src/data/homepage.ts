@@ -107,7 +107,7 @@ export const PRINCIPALS: Principal[] = [
       { text: 'Warwick Business School in collaboration with Bank of England' },
       { text: 'PhD FinTech' },
     ],
-    geographyTags: ['Harare', 'Shanghai', 'The Hague'],
+    geographyTags: ['Bulawayo', 'Shanghai', 'The Hague'],
   },
   {
     name: 'Jamila van Kooij',
@@ -123,12 +123,13 @@ export const PRINCIPALS: Principal[] = [
       { text: 'AI, fintech, and digital infrastructure due diligence' },
       { text: 'China and Netherlands market execution context' },
     ],
-    geographyTags: ['Amsterdam', 'Shanghai', 'Harare'],
+    geographyTags: ['Amsterdam', 'Shanghai', 'Bulawayo'],
   },
   {
     name: 'Thulani Dube',
     role: 'Infrastructure & Real Estate Principal',
     subtitle: 'Engineering · Real Estate Development · Infrastructure Technology · Software Systems',
+    image: '/images/Thulani.jpg',
     bio1:
       "Thulani Dube's engineering foundation gives the office a discipline pure finance rarely commands: the ability to look beyond the pro forma to physical delivery reality.",
     bio2:
@@ -143,7 +144,7 @@ export const PRINCIPALS: Principal[] = [
 ]
 
 export const OFFICE_LOCATIONS: OfficeLocation[] = [
-  { city: 'Harare', country: 'Zimbabwe', role: 'Principal Office (HQ)', isHQ: true },
+  { city: 'Bulawayo', country: 'Zimbabwe', role: 'Principal Office (HQ)', isHQ: true },
   { city: 'Shanghai', country: 'China', role: 'Asia Operations' },
   { city: 'The Hague', country: 'Netherlands', role: 'Europe Operations' },
 ]

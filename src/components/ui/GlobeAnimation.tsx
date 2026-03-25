@@ -137,7 +137,7 @@ export function GlobeAnimation() {
         }}
       >
         <span className="label-text text-[0.6rem]">
-          Harare · Shanghai · The Hague
+          Bulawayo · Shanghai · The Hague
         </span>
       </div>
     </div>

@@ -82,7 +82,7 @@ export function ContactSection() {
             <RevealWrapper delay={0.4}>
               <div className="flex flex-col gap-6">
                 {[
-                  { label: 'Principal Office', value: 'Harare, Zimbabwe' },
+                  { label: 'Principal Office', value: 'Bulawayo, Zimbabwe' },
                   { label: 'Global Offices', value: 'Shanghai · The Hague' },
                   { label: 'Email', value: 'enquiries@vacherot.com', isEmail: true },
                 ].map((item) => (

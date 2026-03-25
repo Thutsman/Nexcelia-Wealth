@@ -52,7 +52,7 @@ export function Footer() {
           <div>
             <p className="label-text mb-5 text-[0.6rem]">Contact</p>
             <div className="flex flex-col gap-3">
-              <p className="text-ivory-dim text-[17px] font-body">Harare, Zimbabwe</p>
+              <p className="text-ivory-dim text-[17px] font-body">Bulawayo, Zimbabwe</p>
               <p className="text-ivory-dim text-[17px] font-body">Shanghai, China</p>
               <p className="text-ivory-dim text-[17px] font-body">The Hague, Netherlands</p>
               <GoldDivider className="my-2" />

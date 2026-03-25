@@ -18,7 +18,7 @@ export default function HomePage() {
           name: 'Vacherot Capital Strategy',
           url: siteUrl,
           description: 'A principal-led wealth office deploying capital across Southern Africa with global institutional discipline.',
-          address: { city: 'Harare', country: 'ZW' },
+          address: { city: 'Bulawayo', country: 'ZW' },
         }}
       />
       <Hero />
